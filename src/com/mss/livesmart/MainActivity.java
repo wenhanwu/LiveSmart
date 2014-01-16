@@ -1,22 +1,27 @@
 package com.mss.livesmart;
 
-import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.view.Menu;
+import android.os.Bundle;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
+	MyImageView joke;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
+		joke = (MyImageView) findViewById(R.id.c_joke);
+		joke.setOnClickIntent(new MyImageView.OnViewClick() {
 
+			@SuppressLint("ShowToast")
+			@Override
+			public void onClick() {
+				Toast.makeText(MainActivity.this, "clicked", 100)
+						.show();
+			}
+		});
+	}
 }
