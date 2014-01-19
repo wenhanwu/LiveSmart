@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 	MyImageView joke;
 	MyImageView photoAlbum;
+	MyImageView heartRate;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,17 @@ public class MainActivity extends Activity {
 				//Starting a new Intent
 		        Intent photoAlbumScreen = new Intent(getApplicationContext(), PhotoAlbumActivity.class);
 		        startActivity(photoAlbumScreen);
+			}
+		});
+		
+		heartRate = (MyImageView) findViewById(R.id.c_idea);
+		heartRate.setOnClickIntent(new MyImageView.OnViewClick() {
+			
+			@Override
+			public void onClick() {				
+				//Starting a new Intent
+		        Intent heartRateScreen = new Intent(getApplicationContext(), HeartRateActivity.class);
+		        startActivity(heartRateScreen);
 			}
 		});
 		
