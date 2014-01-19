@@ -2,6 +2,7 @@ package com.mss.livesmart;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,7 +11,8 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	MyImageView joke;
-
+	MyImageView photoAlbum;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,6 +28,18 @@ public class MainActivity extends Activity {
 						.show();
 			}
 		});
+		
+		photoAlbum = (MyImageView) findViewById(R.id.c_recommend);
+		photoAlbum.setOnClickIntent(new MyImageView.OnViewClick() {
+			
+			@Override
+			public void onClick() {				
+				//Starting a new Intent
+		        Intent photoAlbumScreen = new Intent(getApplicationContext(), PhotoAlbumActivity.class);
+		        startActivity(photoAlbumScreen);
+			}
+		});
+		
 	}
 	
 	@Override
