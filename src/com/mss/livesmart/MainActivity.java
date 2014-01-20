@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick() {				
-				//Starting a new Intent
+				//Starting a new intent
 		        Intent photoAlbumScreen = new Intent(getApplicationContext(), PhotoAlbumActivity.class);
 		        startActivity(photoAlbumScreen);
 			}
