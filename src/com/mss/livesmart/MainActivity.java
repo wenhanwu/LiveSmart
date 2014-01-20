@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		photoAlbum = (MyImageView) findViewById(R.id.c_recommend);
+		photoAlbum = (MyImageView) findViewById(R.id.c_idea);
 		photoAlbum.setOnClickIntent(new MyImageView.OnViewClick() {
 			
 			@Override
@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		heartRate = (MyImageView) findViewById(R.id.c_idea);
+		heartRate = (MyImageView) findViewById(R.id.c_recommend);
 		heartRate.setOnClickIntent(new MyImageView.OnViewClick() {
 			
 			@Override
