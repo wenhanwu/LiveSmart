@@ -13,6 +13,7 @@ public class MainActivity extends Activity {
 	MyImageView joke;
 	MyImageView photoAlbum;
 	MyImageView heartRate;
+	MyImageView healthCenter;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,16 @@ public class MainActivity extends Activity {
 		        startActivity(heartRateScreen);
 			}
 		});
-		
+		healthCenter = (MyImageView) findViewById(R.id.c_constellation);
+		healthCenter.setOnClickIntent(new MyImageView.OnViewClick() {
+			
+			@Override
+			public void onClick() {				
+				//Starting a new Intent
+		        Intent healthCenterScreen = new Intent(getApplicationContext(), HealthCenterActivity.class);
+		        startActivity(healthCenterScreen);
+			}
+		});
 	}
 	
 	@Override
