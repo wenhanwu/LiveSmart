@@ -22,7 +22,7 @@
                 android:orientation="vertical" >
 
                 <com.mss.livesmart.MyImageView
-                    android:id="@+id/c_joke"
+                    android:id="@+id/c_health_center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
@@ -30,7 +30,7 @@
                     android:src="@drawable/left_top" />
 
                 <com.mss.livesmart.MyImageView
-                    android:id="@+id/c_idea"
+                    android:id="@+id/c_photo_album"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
@@ -39,7 +39,7 @@
             </LinearLayout>
 
             <com.mss.livesmart.MyImageView
-                android:id="@+id/c_constellation"
+                android:id="@+id/c_message_center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -48,7 +48,7 @@
         </LinearLayout>
 
         <com.mss.livesmart.MyImageView
-            android:id="@+id/c_recommend"
+            android:id="@+id/c_heart_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"

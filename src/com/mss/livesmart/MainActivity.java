@@ -10,27 +10,40 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
-	MyImageView joke;
+	MyImageView healthCenter;
+	MyImageView	messageCenter;
 	MyImageView photoAlbum;
 	MyImageView heartRate;
-	MyImageView healthCenter;
+	
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		joke = (MyImageView) findViewById(R.id.c_joke);
-		joke.setOnClickIntent(new MyImageView.OnViewClick() {
-
-			@SuppressLint("ShowToast")
+		
+		healthCenter = (MyImageView) findViewById(R.id.c_health_center);
+		healthCenter.setOnClickIntent(new MyImageView.OnViewClick() {
+			
 			@Override
-			public void onClick() {
-				Toast.makeText(MainActivity.this, "clicked", 100).show();
+			public void onClick() {				
+				//Starting a new Intent
+		        Intent healthCenterScreen = new Intent(getApplicationContext(), HealthCenterActivity.class);
+		        startActivity(healthCenterScreen);
+			}
+		});
+
+		messageCenter = (MyImageView) findViewById(R.id.c_message_center);
+		messageCenter.setOnClickIntent(new MyImageView.OnViewClick() {
+			
+			@Override
+			public void onClick() {				
+				//Starting a new Intent
+		        Intent messageCenterScreen = new Intent(getApplicationContext(), MessageCenterActivity.class);
+		        startActivity(messageCenterScreen);
 			}
 		});
 		
-		photoAlbum = (MyImageView) findViewById(R.id.c_idea);
+		photoAlbum = (MyImageView) findViewById(R.id.c_photo_album);
 		photoAlbum.setOnClickIntent(new MyImageView.OnViewClick() {
 			
 			@Override
@@ -41,7 +54,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		heartRate = (MyImageView) findViewById(R.id.c_recommend);
+		heartRate = (MyImageView) findViewById(R.id.c_heart_rate);
 		heartRate.setOnClickIntent(new MyImageView.OnViewClick() {
 			
 			@Override
@@ -51,16 +64,7 @@ public class MainActivity extends Activity {
 		        startActivity(heartRateScreen);
 			}
 		});
-		healthCenter = (MyImageView) findViewById(R.id.c_constellation);
-		healthCenter.setOnClickIntent(new MyImageView.OnViewClick() {
-			
-			@Override
-			public void onClick() {				
-				//Starting a new Intent
-		        Intent healthCenterScreen = new Intent(getApplicationContext(), HealthCenterActivity.class);
-		        startActivity(healthCenterScreen);
-			}
-		});
+
 	}
 	
 	@Override
