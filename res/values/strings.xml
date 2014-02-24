@@ -2,7 +2,13 @@
 <resources>
 
     <string name="app_name"></string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Set Personal Info</string>
     <string name="action_search">Search</string>
-
+    <string name="gender_prompt">Select your gender</string>
+    
+    <string-array name="gender_arrays">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    
 </resources>

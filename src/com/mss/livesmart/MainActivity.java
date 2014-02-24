@@ -25,8 +25,7 @@ public class MainActivity extends Activity {
 			@SuppressLint("ShowToast")
 			@Override
 			public void onClick() {
-				Toast.makeText(MainActivity.this, "clicked", 100)
-						.show();
+				Toast.makeText(MainActivity.this, "clicked", 100).show();
 			}
 		});
 		
@@ -71,6 +70,9 @@ public class MainActivity extends Activity {
 	            return true;
 	        case R.id.action_settings:
 	            //action when setting button is clicked
+	            //Starting a new intent
+	            Intent personalInfoScreen = new Intent(getApplicationContext(), PersonalInfoActivity.class);
+	            startActivity(personalInfoScreen);
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
