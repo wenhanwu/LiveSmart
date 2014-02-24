@@ -9,7 +9,7 @@
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/textActivityLevel"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
         android:orientation="vertical" >
@@ -39,7 +39,7 @@
         android:orientation="vertical" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/btnActivityCenter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Take picture"
@@ -54,7 +54,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textActivityLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

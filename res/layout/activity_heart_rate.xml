@@ -23,7 +23,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textActivityLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -38,7 +38,7 @@
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/textActivityLevel"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:orientation="vertical"

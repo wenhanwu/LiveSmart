@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"    
+    android:background="@drawable/bkg_blue"
+    android:layout_marginTop="40dp" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+         android:layout_marginTop="40dp"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+			android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btnHeartRate"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="32dp"
+                android:background="#99FF0000"
+                android:text="Heart Rate"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:typeface="serif" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:textColor="#A4C739"
+                android:background="#FFFFFF"
+				android:textStyle="bold"
+                android:typeface="serif"                 
+                android:text="Edit" />
+         
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+android:layout_weight="1"
+            android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btnBloodPressure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/button1"
+            android:background="#880000A0"
+            android:text="Blood Pressure"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+                 <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:textColor="#A4C739"
+                android:background="#FFFFFF"
+				android:textStyle="bold"
+                android:typeface="serif"                 
+                android:text="Edit" />
+  </RelativeLayout>
+
+       <RelativeLayout
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+android:layout_weight="1"         
+  android:orientation="vertical" >
+        
+        <Button
+            android:id="@+id/btnSleepInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#99000000"
+            android:text="Sleep Information"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:typeface="serif" />
+          <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:textColor="#A4C739"
+                android:background="#FFFFFF"
+				android:textStyle="bold"
+                android:typeface="serif"                 
+                android:text="Edit" />
+        </RelativeLayout>
+
+       <RelativeLayout
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+android:layout_weight="1"
+           android:orientation="vertical" >
+       
+        <Button
+            android:id="@+id/btnActivityCenter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="28dp"
+            android:background="#88FFFF00"
+            android:text="Activity Center"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:typeface="serif" />
+          <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:textColor="#A4C739"
+                android:background="#FFFFFF"
+				android:textStyle="bold"
+                android:typeface="serif"                 
+                android:text="Edit" />
+        </RelativeLayout>
+              <RelativeLayout
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+android:layout_weight="1"
+           android:orientation="vertical" >
+       
+        <Button
+            android:id="@+id/btnGetReco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="28dp"
+            android:background="#3A3A38"
+            android:text="Get Recommendation"
+            android:textColor="#ADFF2F"
+            android:textStyle="bold"
+            android:typeface="serif" />
+        </RelativeLayout>
+    </LinearLayout>
+    
+</RelativeLayout>

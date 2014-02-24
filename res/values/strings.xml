@@ -10,5 +10,6 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
-    
+    <string name="title_activity_health_center">HealthCenterActivity</string>
+
 </resources>
