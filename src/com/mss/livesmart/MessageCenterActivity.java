@@ -3,6 +3,8 @@ package com.mss.livesmart;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -29,11 +31,30 @@ public class MessageCenterActivity extends Activity {
         myStringArray.add("12th Suggestion");
         
 		Bundle bundle = getIntent().getExtras();
+		String newMessage = "no message";
 		if(bundle != null){
-			String newMessage = bundle.getString("key");
+			newMessage = bundle.getString("key");
 		}
         
-
+		// add a dialog and set message
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setTitle("New Recommendtion!");
+		alertDialogBuilder
+			.setMessage(newMessage)
+			.setCancelable(false)
+			.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// if "OK" is clicked, close current activity
+					MessageCenterActivity.this.finish();				
+				}
+			}) ;
+	
+		// create and show the alert dialog
+		AlertDialog alertDialog = alertDialogBuilder.create();
+		alertDialog.show();
+		
         ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myStringArray);
         ListView listView = (ListView) findViewById(R.id.listView1);
         listView.setAdapter(adapter);
@@ -42,4 +63,6 @@ public class MessageCenterActivity extends Activity {
         
         // TODO: after the message window is dismissed, add the new message to list
 	}
+	
+	
 }

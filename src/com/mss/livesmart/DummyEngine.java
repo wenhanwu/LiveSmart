@@ -14,7 +14,7 @@ public class DummyEngine {
 //	File file = new File(filename);
 	
 	public String generateRecommendation(){
-		String result = "You are in good health";
+		String result = "You are in good health : )";
 //		os = openFileOutput(file, Context.MODE_PRIVATE);
 		
 		return result;
