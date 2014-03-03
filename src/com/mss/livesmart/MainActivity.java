@@ -24,10 +24,10 @@ public class MainActivity extends Activity {
 		settings = getSharedPreferences("AppSettings", 0);
 		if(settings.getBoolean("RunFirstTime", true)) {
 			Intent personalInfoScreen = new Intent(getApplicationContext(), PersonalInfoActivity.class);
-            startActivity(personalInfoScreen);
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putBoolean("RunFirstTime", false);
-            editor.commit();
+			startActivity(personalInfoScreen);
+			SharedPreferences.Editor editor = settings.edit();
+			editor.putBoolean("RunFirstTime", false);
+			editor.commit();
 		}
 		healthCenter = (MyImageView) findViewById(R.id.c_health_center);
 		healthCenter.setOnClickIntent(new MyImageView.OnViewClick() {
