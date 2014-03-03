@@ -6,7 +6,8 @@
           android:title="@string/action_search"
           android:showAsAction="ifRoom" />
       <!-- Settings, should always be in the overflow -->
-      <item android:id="@+id/action_settings"
+      <item android:id="@+id/action_settings"   
+          android:icon="@drawable/personal_info"       
           android:title="@string/action_settings"
-          android:showAsAction="never" />
+          android:showAsAction="ifRoom" />
     </menu>
