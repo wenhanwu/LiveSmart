@@ -3,6 +3,7 @@ package com.mss.livesmart;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,13 +15,20 @@ public class MainActivity extends Activity {
 	MyImageView	messageCenter;
 	MyImageView photoAlbum;
 	MyImageView heartRate;
-	
+	SharedPreferences settings;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+		settings = getSharedPreferences("AppSettings", 0);
+		if(settings.getBoolean("RunFirstTime", true)) {
+			Intent personalInfoScreen = new Intent(getApplicationContext(), PersonalInfoActivity.class);
+            startActivity(personalInfoScreen);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putBoolean("RunFirstTime", false);
+            editor.commit();
+		}
 		healthCenter = (MyImageView) findViewById(R.id.c_health_center);
 		healthCenter.setOnClickIntent(new MyImageView.OnViewClick() {
 			
