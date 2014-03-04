@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"    
-    android:background="@drawable/bkg_blue"
-    android:layout_marginTop="40dp" >
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_marginTop="40dp"
+    android:background="@drawable/bkg_blue" >
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -20,121 +20,328 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
 			android:layout_weight="1"
-            android:orientation="vertical" >
+			
+            android:orientation="vertical" >            
 
             <Button
                 android:id="@+id/btnHeartRate"
-                android:layout_width="197dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginBottom="32dp"
-                android:background="#99FF0000"
+                android:background="#800020"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dip" 
+                android:layout_marginBottom="5dip" 
+                android:layout_marginLeft="5dip" 
+                android:layout_marginRight="5dip" 
+ 
+                android:gravity="left|top"
+                android:paddingLeft="5dip"
                 android:text="Heart Rate"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
-                android:typeface="serif" />
+                android:typeface="serif"
+                 android:textSize="20dp" />
+  <!--  android:background="#FFFFFF"android:hint="@string/edit_message"-->
+
+
+			<EditText
+			    android:id="@+id/edit_heart"
+			    android:layout_width="80dp"
+			    android:layout_height="30dp"
+			    
+			    android:gravity="center_vertical|center_horizontal"
+			    android:layout_centerVertical="true"
+    android:layout_centerInParent="true"
+
+
+			    android:layout_weight="1"
+			    android:background="#ffffff"
+			    android:textColor="@android:color/darker_gray"                
+                android:textStyle="bold"
+                android:typeface="serif"
+			    android:ems="10"
+			    android:textSize="20dp"
+			    android:paddingLeft="10dip"
+				android:paddingRight="10dip"
+				android:singleLine="true"/>
+
+            <TextView
+                android:id="@+id/textBPM"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/edit_heart"
+                android:layout_weight="1"
+                android:text="BPM"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:typeface="serif"
+                			    android:paddingLeft="10dip"
+				android:paddingRight="10dip"
+                 />
 
             <Button
                 android:id="@+id/button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:textColor="#A4C739"
-                android:background="#FFFFFF"
-				android:textStyle="bold"
-                android:typeface="serif"                 
-                android:text="Edit" />
-         
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/textBPM"
+                android:background="#ffffff"
+
+                android:text="Edit"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:typeface="serif"
+    			android:paddingLeft="10dip"
+				android:paddingRight="10dip" />
+						
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-android:layout_weight="1"
+			android:layout_weight="1"
+           
+			 android:gravity="right|center_vertical"
             android:orientation="vertical" >
 
         <Button
             android:id="@+id/btnBloodPressure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/button1"
-            android:background="#880000A0"
+            android:background="#ED9121"
             android:text="Blood Pressure"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:typeface="serif" />
-
-                 <Button
-                android:id="@+id/button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentTop="true"
-                android:textColor="#A4C739"
-                android:background="#FFFFFF"
-				android:textStyle="bold"
-                android:typeface="serif"                 
-                android:text="Edit" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dip" 
+                android:layout_marginBottom="5dip" 
+                android:layout_marginLeft="5dip" 
+                android:layout_marginRight="5dip" 
+                android:gravity="left|top"
+                android:paddingLeft="5dip"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:typeface="serif"
+                 android:textSize="20dp" />
+			<EditText
+			    android:id="@+id/edit_BP"
+			    android:layout_width="80dp"
+			    android:layout_height="30dp"
+			    
+			    android:gravity="center_vertical|center_horizontal"
+			    android:layout_centerVertical="true"
+    android:layout_centerInParent="true"
+
+
+			    android:layout_weight="1"
+			    android:background="#ffffff"
+			    android:textColor="@android:color/darker_gray"                
+                android:textStyle="bold"
+                android:typeface="serif"
+			    android:ems="10"
+			    android:textSize="20dp"
+			    android:paddingLeft="10dip"
+				android:paddingRight="10dip"
+				android:singleLine="true"/>
+
+            <TextView
+                android:id="@+id/textBP"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/edit_BP"
+                android:layout_weight="1"
+
+                android:text="mmHg"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:typeface="serif"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/textBP"
+                android:background="#ffffff"
+
+                android:text="Edit"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:typeface="serif"
+    			android:paddingLeft="10dip"
+				android:paddingRight="10dip" />
   </RelativeLayout>
 
        <RelativeLayout
            android:layout_width="fill_parent"
            android:layout_height="fill_parent"
-android:layout_weight="1"         
-  android:orientation="vertical" >
+		   android:layout_weight="1"
+		           
+		   android:orientation="vertical" >
         
         <Button
             android:id="@+id/btnSleepInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#99000000"
+            android:background="#03C03C"
             android:text="Sleep Information"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:typeface="serif" />
-          <Button
-                android:id="@+id/button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentTop="true"
-                android:textColor="#A4C739"
-                android:background="#FFFFFF"
-				android:textStyle="bold"
-                android:typeface="serif"                 
-                android:text="Edit" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dip" 
+                android:layout_marginBottom="5dip" 
+                android:layout_marginLeft="5dip" 
+                android:layout_marginRight="5dip" 
+                android:gravity="left|top"
+                android:paddingLeft="5dip"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:typeface="serif"
+                 android:textSize="20dp" />
+
+ 			<EditText
+			    android:id="@+id/edit_heart"
+			    android:layout_width="80dp"
+			    android:layout_height="30dp"
+			    
+			    android:gravity="center_vertical|center_horizontal"
+			    android:layout_centerVertical="true"
+    			android:layout_centerInParent="true"
+
+
+			    android:layout_weight="1"
+			    android:background="#ffffff"
+			    android:textColor="@android:color/darker_gray"                
+                android:textStyle="bold"
+                android:typeface="serif"
+			    android:ems="10"
+			    android:textSize="20dp"
+			    android:paddingLeft="10dip"
+				android:paddingRight="10dip"
+				android:singleLine="true"/>
+
+            <TextView
+                android:id="@+id/textSleep"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/edit_heart"
+                android:layout_weight="1"
+                android:text="Hrs"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:typeface="serif"
+                			    android:paddingLeft="10dip"
+				android:paddingRight="10dip"
+                 />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/textSleep"
+                android:background="#ffffff"
+
+                android:text="Edit"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:typeface="serif"
+    			    android:paddingLeft="10dip"
+				android:paddingRight="10dip" />
         </RelativeLayout>
 
        <RelativeLayout
            android:layout_width="fill_parent"
            android:layout_height="fill_parent"
-android:layout_weight="1"
-           android:orientation="vertical" >
+		   android:layout_weight="1"
+           android:orientation="vertical">
        
         <Button
             android:id="@+id/btnActivityCenter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_marginBottom="28dp"
-            android:background="#88FFFF00"
-            android:text="Activity Center"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:typeface="serif" />
-          <Button
-                android:id="@+id/button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+            android:text="Activity"
+            android:background="#BFFF00"
+     			android:layout_alignParentBottom="true"
                 android:layout_alignParentTop="true"
-                android:textColor="#A4C739"
-                android:background="#FFFFFF"
-				android:textStyle="bold"
-                android:typeface="serif"                 
-                android:text="Edit" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dip" 
+                android:layout_marginBottom="5dip" 
+                android:layout_marginLeft="5dip" 
+                android:layout_marginRight="5dip" 
+                android:gravity="left|top"
+                android:paddingLeft="5dip"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:typeface="serif"
+                 android:textSize="20dp" />
+			<EditText
+			    android:id="@+id/edit_heart"
+			    android:layout_width="80dp"
+			    android:layout_height="30dp"
+			    
+			    android:gravity="center_vertical|center_horizontal"
+			    android:layout_centerVertical="true"
+    android:layout_centerInParent="true"
+
+
+			    android:layout_weight="1"
+			    android:background="#ffffff"
+			    android:textColor="@android:color/darker_gray"                
+                android:textStyle="bold"
+                android:typeface="serif"
+			    android:ems="10"
+			    android:textSize="20dp"
+			    android:paddingLeft="10dip"
+				android:paddingRight="10dip"
+				android:singleLine="true"/>
+
+            <TextView
+                android:id="@+id/textActivity"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/edit_heart"
+                android:layout_weight="1"
+                android:text="Steps"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:typeface="serif"
+                			    android:paddingLeft="10dip"
+				android:paddingRight="10dip"
+                 />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/textActivity"
+                android:background="#ffffff"
+
+                android:text="Edit"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:typeface="serif"
+    			    android:paddingLeft="10dip"
+				android:paddingRight="10dip" />
+
         </RelativeLayout>
               <RelativeLayout
            android:layout_width="fill_parent"
