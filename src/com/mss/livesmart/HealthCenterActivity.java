@@ -18,14 +18,21 @@ public class HealthCenterActivity extends Activity {
         getRecommendaitons.setOnClickListener(new View.OnClickListener() {
  
             public void onClick(View arg0) {
-                //Closing SecondScreen Activity
-            	DummyEngine dummyEngine = new DummyEngine();
-            	String recommendation = dummyEngine.generateRecommendation();
+ 
+//            	DummyEngine dummyEngine = new DummyEngine();
+//            	String recommendation = dummyEngine.generateRecommendation();
+            	
+            	JsonTest dummyJson = new JsonTest();
+            	Response[] responseList = dummyJson.jsonToList();
             	
 				//Starting a new Intent and Bundle
 		        Intent messageCenterScreen = new Intent(getApplicationContext(), MessageCenterActivity.class);	        
 				Bundle aBundle = new Bundle();
-				aBundle.putString("key", recommendation );
+				aBundle.putSerializable("json", responseList);
+				
+				// test if we can get the serialized objects
+				// Response[] responseList2 =  (Response[]) aBundle.getSerializable("json");
+				
 				messageCenterScreen.putExtras(aBundle); // attach it to the intent
 				startActivity(messageCenterScreen);
 		        
