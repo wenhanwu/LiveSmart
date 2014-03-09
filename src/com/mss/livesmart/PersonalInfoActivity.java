@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
@@ -14,6 +15,7 @@ public class PersonalInfoActivity extends Activity{
 	Spinner spinnerGender;
 	SharedPreferences settings; 
 	DatePicker dob;
+	CheckBox hypertensionCbx, insomniaCbx, diabetesCbx, cardioCbx;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,18 @@ public class PersonalInfoActivity extends Activity{
         heightPicker.setMaxValue(220);
         heightPicker.setMinValue(0);
         heightPicker.setValue(settings.getInt("HeightInCM", 170));
+        
+        hypertensionCbx = (CheckBox) findViewById(R.id.HypertensionCbx);
+        hypertensionCbx.setChecked(settings.getBoolean("Hypertension", false));
+        
+        insomniaCbx = (CheckBox) findViewById(R.id.InsomniaCbx);
+        insomniaCbx.setChecked(settings.getBoolean("Insomnia", false));
+        
+        diabetesCbx = (CheckBox) findViewById(R.id.DiabtetesCbx);
+        diabetesCbx.setChecked(settings.getBoolean("Diabetes", false));
+        
+        cardioCbx = (CheckBox) findViewById(R.id.CardioCbx);
+        cardioCbx.setChecked(settings.getBoolean("Cardio", false));
         
         Button btnCancel = (Button) findViewById(R.id.buttonCancel);
         btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +80,11 @@ public class PersonalInfoActivity extends Activity{
 		
 		editor.putInt("WeightInKG", weightPicker.getValue());
 		editor.putInt("HeightInCM", heightPicker.getValue());
+		
+		editor.putBoolean("Hypertension", hypertensionCbx.isChecked());
+		editor.putBoolean("Insomnia", insomniaCbx.isChecked());
+		editor.putBoolean("Cardio", cardioCbx.isChecked());
+		editor.putBoolean("Diabetes", diabetesCbx.isChecked());
 		
 		editor.commit();
 	}
