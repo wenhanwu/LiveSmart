@@ -13,4 +13,15 @@
     <string name="title_activity_health_center">HealthCenterActivity</string>
     <string name="title_personal_info">Your Personal Info</string>
 
+    <string name="personal_info">PersonalInfo</string>
+    <string name="Hypertension">Hypertension</string>
+    <string name="Insomnia">Insomnia</string>
+    <string name="Cardio">Cardio</string>
+    <string name="Diabetes">Diabetes</string>
+    <string name="Gender">Gender</string>
+    <string name="weight_in_kilogram">WeightInKG</string>
+    <string name="height_in_centemeter">HeightInCM</string>
+    <string name="day_of_birth">DOBday</string>
+    <string name="month_of_birth">DOBmonth</string>
+    <string name="year_of_birth">DOByear</string>
 </resources>
