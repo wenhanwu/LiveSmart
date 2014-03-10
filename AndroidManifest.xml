@@ -42,6 +42,14 @@
             android:name="com.mss.livesmart.PersonalInfoActivity"
             android:label="@string/title_personal_info" >
         </activity>
+        <activity
+            android:name="com.mss.livesmart.data.AddUpdateRecActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.mss.livesmart.data.RecommendationActivity"
+            android:label="@string/title_activity_recommendation" >
+        </activity>
         
     </application>
 

@@ -1,5 +1,7 @@
 package com.mss.livesmart;
 
+import com.mss.livesmart.data.RecommendationActivity;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -17,6 +19,7 @@ public class MainActivity extends Activity {
 	MyImageView	messageCenter;
 	MyImageView photoAlbum;
 	MyImageView heartRate;
+	MyImageView recommendation;
 	SharedPreferences settings;
 	Resources res;
 	
@@ -48,7 +51,7 @@ public class MainActivity extends Activity {
 		messageCenter.setOnClickIntent(new MyImageView.OnViewClick() {
 			
 			@Override
-			public void onClick() {				
+			public void onClick() {
 				//Starting a new Intent
 		        Intent messageCenterScreen = new Intent(getApplicationContext(), MessageCenterActivity.class);
 		        startActivity(messageCenterScreen);
@@ -74,6 +77,16 @@ public class MainActivity extends Activity {
 				//Starting a new Intent
 		        Intent heartRateScreen = new Intent(getApplicationContext(), HeartRateActivity.class);
 		        startActivity(heartRateScreen);
+			}
+		});
+		recommendation = (MyImageView) findViewById(R.id.recommendation);
+		recommendation.setOnClickIntent(new MyImageView.OnViewClick() {
+			
+			@Override
+			public void onClick() {				
+				//Starting a new Intent
+		        Intent recommendationScreen = new Intent(getApplicationContext(), RecommendationActivity.class);
+		        startActivity(recommendationScreen);
 			}
 		});
 
