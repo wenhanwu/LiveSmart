@@ -13,6 +13,7 @@
     <string name="title_activity_health_center">HealthCenterActivity</string>
     <string name="title_personal_info">Your Personal Info</string>
 
+    <string name="engine_url">http://healthengineherokuappcom.apiary.io</string>
     <string name="personal_info">PersonalInfo</string>
     <string name="Hypertension">Hypertension</string>
     <string name="Insomnia">Insomnia</string>
