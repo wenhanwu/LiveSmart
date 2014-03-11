@@ -315,7 +315,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:text="Activity"
-            android:background="#BFFF00"
+            android:background="#006600"
      			android:layout_alignParentBottom="true"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
