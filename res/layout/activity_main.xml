@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bkg_blue"
+    android:background="@drawable/bkg_white"
     android:gravity="center"
     android:orientation="vertical" >
 
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:scaleType="matrix"
-            android:src="@drawable/recommandation" />
+            android:src="@drawable/test_database" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
                     android:scaleType="matrix"
-                    android:src="@drawable/left_top" />
+                    android:src="@drawable/my_health_history" />
 
                 <com.mss.livesmart.MyImageView
                     android:id="@+id/c_photo_album"
@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
                     android:scaleType="matrix"
-                    android:src="@drawable/left_bottom" />
+                    android:src="@drawable/input_health_data" />
             </LinearLayout>
 
             <com.mss.livesmart.MyImageView
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:scaleType="matrix"
-                android:src="@drawable/right" />
+                android:src="@drawable/my_message_center" />
         </LinearLayout>
 
         <com.mss.livesmart.MyImageView
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:scaleType="matrix"
-            android:src="@drawable/bottom" />
+            android:src="@drawable/get_recommendations" />
     </LinearLayout>
 
 </LinearLayout>
