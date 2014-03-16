@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class HealthDatabaseHandler extends SQLiteOpenHelper {
 	
-    // All Static variables
     // Database Version
     private static final int DATABASE_VERSION = 3;
 
@@ -77,7 +76,7 @@ public class HealthDatabaseHandler extends SQLiteOpenHelper {
 
 	}
 
-	// TODO
+	// TODO: how to get health data entry?
     /**
      * All CRUD(Create, Read, Update, Delete) Operations
      */
