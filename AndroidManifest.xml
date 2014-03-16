@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/live_smart_logo"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name="com.mss.livesmart.MainActivity"
             android:label="@string/app_name" >
@@ -24,7 +24,7 @@
         </activity>
         <activity
             android:name="com.mss.livesmart.HealthCenterActivity"
-            android:label="@string/app_name" >
+            android:label="@string/title_activity_health_center" >
         </activity>
         <activity 
             android:name="com.mss.livesmart.MessageCenterActivity"
