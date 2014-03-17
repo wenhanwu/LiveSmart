@@ -49,7 +49,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+                    android:orientation="horizontal" >
 
                     <TextView
                         android:id="@+id/textView2"
@@ -58,11 +58,12 @@
                         android:text="Date of birth"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                    <DatePicker
-                        android:id="@+id/dateOfBirth"
-                        android:layout_width="wrap_content"
+                    <EditText
+                        android:id="@+id/txtDOB"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:calendarViewShown="false" />
+                        android:layout_weight="1" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -79,12 +80,16 @@
                         android:text="Weight"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                    <NumberPicker
-                        android:id="@+id/weightPicker"
+                    <EditText
+                        android:id="@+id/txtWeight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:showDividers="none" />
+                        android:maxLength="3"
+                        android:inputType="number"
+                        android:layout_weight="1" >
+
+                        <requestFocus />
+                    </EditText>
 
                     <TextView
                         android:id="@+id/textView4"
@@ -99,7 +104,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="1"                    
                     android:gravity="center_vertical" >
 
                     <TextView
@@ -110,12 +115,13 @@
                         android:text="Height"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                    <NumberPicker
-                        android:id="@+id/heightPicker"
+                    <EditText
+                        android:id="@+id/txtHeight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:showDividers="none" />
+                        android:maxLength="3"
+                        android:inputType="number"
+                        android:layout_weight="1" />
 
                     <TextView
                         android:id="@+id/TextView01"

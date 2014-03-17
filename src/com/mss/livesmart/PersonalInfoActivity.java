@@ -1,23 +1,37 @@
 package com.mss.livesmart;
 
+import com.mss.livesmart.dialogs.EditDateOfBirthDialog;
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.DatePicker;
-import android.widget.NumberPicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 
-public class PersonalInfoActivity extends Activity{
-	NumberPicker weightPicker, heightPicker;
+
+public class PersonalInfoActivity extends FragmentActivity implements EditDateOfBirthDialog.OnCompleteListener{
 	Spinner spinnerGender;
 	SharedPreferences settings; 
-	DatePicker dob;
 	CheckBox hypertensionCbx, insomniaCbx, diabetesCbx, cardioCbx;
 	Resources res;
+	EditText txtDOB, txtWeight, txtHeight;
+	int day, month, year;
+	
+	public void onChangeDOBComplete(int day, int month, int year){
+	    this.day = day;
+        this.month = month;
+        this.year = year;
+	    	    
+	    // update date of birth display
+	    txtDOB.setText(getDateOfBirth());
+	    
+	}
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,22 +40,29 @@ public class PersonalInfoActivity extends Activity{
         res = getResources();
         settings = getSharedPreferences(res.getString(R.string.personal_info), 0);
         
+        day = settings.getInt(res.getString(R.string.day_of_birth), 1);
+        month = settings.getInt(res.getString(R.string.month_of_birth), 1);
+        year = settings.getInt(res.getString(R.string.year_of_birth), 2013);
         
         spinnerGender = (Spinner) findViewById(R.id.spinnerGender);
         spinnerGender.setSelection(settings.getInt(res.getString(R.string.Gender), 0));
         
-        dob = (DatePicker) findViewById(R.id.dateOfBirth);
-        dob.init(settings.getInt(res.getString(R.string.year_of_birth), 2014), settings.getInt(res.getString(R.string.month_of_birth), 1), settings.getInt(res.getString(R.string.day_of_birth), 1), null);
+        txtDOB = (EditText) findViewById(R.id.txtDOB);
+        txtDOB.setText(getDateOfBirth());
+        txtDOB.setOnClickListener(new View.OnClickListener() {            
+            public void onClick(View arg0) {                
+                FragmentManager fm = getSupportFragmentManager();
+                EditDateOfBirthDialog dialog = new EditDateOfBirthDialog();               
+                dialog.show(fm, "edit_date_of_birth_dialog");
+                
+            }
+        });
         
-        weightPicker = (NumberPicker) findViewById(R.id.weightPicker);
-        weightPicker.setMaxValue(200);
-        weightPicker.setMinValue(0);
-        weightPicker.setValue(settings.getInt(res.getString(R.string.weight_in_kilogram), 60));
+        txtWeight = (EditText) findViewById(R.id.txtWeight);
+        txtWeight.setText(settings.getString(res.getString(R.string.weight_in_kilogram), "60"));        
         
-        heightPicker = (NumberPicker) findViewById(R.id.heightPicker);
-        heightPicker.setMaxValue(220);
-        heightPicker.setMinValue(0);
-        heightPicker.setValue(settings.getInt(res.getString(R.string.height_in_centemeter), 170));
+        txtHeight = (EditText) findViewById(R.id.txtHeight);
+        txtHeight.setText(settings.getString(res.getString(R.string.height_in_centemeter), "170"));
         
         hypertensionCbx = (CheckBox) findViewById(R.id.HypertensionCbx);
         hypertensionCbx.setChecked(settings.getBoolean(res.getString(R.string.Hypertension), false));
@@ -56,8 +77,7 @@ public class PersonalInfoActivity extends Activity{
         cardioCbx.setChecked(settings.getBoolean(res.getString(R.string.Cardio), false));
         
         Button btnCancel = (Button) findViewById(R.id.buttonCancel);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
- 
+        btnCancel.setOnClickListener(new View.OnClickListener() { 
             public void onClick(View arg0) {
                 finish();
             }
@@ -73,18 +93,24 @@ public class PersonalInfoActivity extends Activity{
         });
 	}
 	
+	public String getDateOfBirth(){
+	    int adjustedMonth = month + 1;
+	    String dob = "" + year + "/" + adjustedMonth + "/" + day;
+	    return dob;
+	}
+	
 	public void  savePersonalInfo() {
 		
 		SharedPreferences.Editor editor = settings.edit();				
 		editor.putInt(res.getString(R.string.Gender), spinnerGender.getSelectedItemPosition());
 		
-		editor.putInt(res.getString(R.string.day_of_birth), dob.getDayOfMonth());
-		editor.putInt(res.getString(R.string.month_of_birth), dob.getMonth());
-		editor.putInt(res.getString(R.string.year_of_birth), dob.getYear());
+		editor.putString(res.getString(R.string.weight_in_kilogram), txtWeight.getText().toString());
+		editor.putString(res.getString(R.string.height_in_centemeter), txtHeight.getText().toString());
 		
-		editor.putInt(res.getString(R.string.weight_in_kilogram), weightPicker.getValue());
-		editor.putInt(res.getString(R.string.height_in_centemeter), heightPicker.getValue());
-		
+		editor.putInt(res.getString(R.string.day_of_birth), day);
+        editor.putInt(res.getString(R.string.month_of_birth), month);
+        editor.putInt(res.getString(R.string.year_of_birth), year);
+        
 		editor.putBoolean(res.getString(R.string.Hypertension), hypertensionCbx.isChecked());
 		editor.putBoolean(res.getString(R.string.Insomnia), insomniaCbx.isChecked());
 		editor.putBoolean(res.getString(R.string.Cardio), cardioCbx.isChecked());
