@@ -4,9 +4,8 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 /*
- * Health data entry class
- * Each HealthDataEntry represents a row in the database
- * Used for inserting and querying data
+ * class for health data
+ * used for inserting and querying data
  */
 public class HealthDataEntry {
 
