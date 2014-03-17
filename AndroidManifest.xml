@@ -39,6 +39,10 @@
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:name="com.mss.livesmart.InputHealthDataActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
             android:name="com.mss.livesmart.PersonalInfoActivity"
             android:label="@string/title_personal_info" >
         </activity>

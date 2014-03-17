@@ -12,7 +12,7 @@
         android:orientation="vertical" >
 
         <com.mss.livesmart.MyImageView
-            android:id="@+id/recommendation"
+            android:id="@+id/c_test_database"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -38,7 +38,7 @@
                     android:src="@drawable/my_health_history" />
 
                 <com.mss.livesmart.MyImageView
-                    android:id="@+id/c_photo_album"
+                    android:id="@+id/c_input_health_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
@@ -56,7 +56,7 @@
         </LinearLayout>
 
         <com.mss.livesmart.MyImageView
-            android:id="@+id/c_heart_rate"
+            android:id="@+id/c_get_recommendations"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
