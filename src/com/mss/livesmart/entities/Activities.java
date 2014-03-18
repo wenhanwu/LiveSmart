@@ -8,15 +8,7 @@ public class Activities {
 	private String date;
 	private String startTime;
 	private int steps;
-
-
-	public String getStartTime() {
-		return startTime;
-	}
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-	}
+	
 
 	public int getSteps() {
 		return steps;
@@ -24,14 +16,6 @@ public class Activities {
 
 	public void setSteps(int steps) {
 		this.steps = steps;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date2) {
-		this.date = date2;
 	}
 
 	public int getDistance() {
@@ -48,6 +32,22 @@ public class Activities {
 
 	public void setDuration(double duration) {
 		this.duration = duration;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
 	}
 
 }
