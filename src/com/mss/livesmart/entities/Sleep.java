@@ -6,6 +6,8 @@ public class Sleep {
 	private String startTime;
 	private int minutesAsleep;
 	private int minutesAwake;
+	private int awakeningsCount;
+	private int timeInBed;
 
 	public int getEfficiency() {
 		return efficiency;
@@ -63,6 +65,5 @@ public class Sleep {
 		this.timeInBed = timeInBed;
 	}
 
-	private int awakeningsCount;
-	private int timeInBed;
+	
 }
