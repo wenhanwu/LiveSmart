@@ -8,7 +8,16 @@ public class Activities {
 	private String date;
 	private String startTime;
 	private int steps;
-	
+
+	public Activities(int distance, double duration, int steps) {
+		this.distance = distance;
+		this.duration = duration;
+		this.steps = steps;
+	}
+
+	public Activities() {
+
+	}
 
 	public int getSteps() {
 		return steps;
