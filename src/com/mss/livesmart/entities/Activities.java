@@ -8,9 +8,9 @@ public class Activities {
 	private String date;
 	private String startTime;
 	private int steps;
-	
-	public Activities(){
-		
+
+	public Activities() {
+
 	}
 
 	public Activities(int distance, double duration, String date,
@@ -20,6 +20,12 @@ public class Activities {
 		this.duration = duration;
 		this.date = date;
 		this.startTime = startTime;
+		this.steps = steps;
+	}
+
+	public Activities(int distance, double duration, int steps) {
+		this.distance = distance;
+		this.duration = duration;
 		this.steps = steps;
 	}
 

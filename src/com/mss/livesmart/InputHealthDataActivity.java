@@ -2,7 +2,6 @@ package com.mss.livesmart;
 
 import java.util.Date;
 
-import com.mss.livesmart.data.DatabaseHandler;
 import com.mss.livesmart.entities.Activities;
 
 import android.app.Activity;

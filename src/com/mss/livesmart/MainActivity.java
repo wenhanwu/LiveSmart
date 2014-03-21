@@ -1,6 +1,7 @@
 package com.mss.livesmart;
 
-import com.mss.livesmart.data.RecommendationActivity;
+import com.mss.livesmart.data.ActivitiesActivity;
+import com.mss.livesmart.entities.*;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -82,7 +83,8 @@ public class MainActivity extends Activity {
 	            client.post(res.getString(R.string.engine_url), params, new AsyncHttpResponseHandler() {
 	                @Override
 	                public void onSuccess(String response) {
-	                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();	                    
+	                	String str=Test2.toObject();
+	                    Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();	                    
 	                }
 	            });
 			}
@@ -93,7 +95,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick() {				
 				//Starting a new Intent
-		        Intent recommendationScreen = new Intent(getApplicationContext(), RecommendationActivity.class);
+		        Intent recommendationScreen = new Intent(getApplicationContext(), ActivitiesActivity.class);
 		        startActivity(recommendationScreen);
 			}
 		});

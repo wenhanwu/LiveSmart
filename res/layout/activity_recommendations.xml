@@ -28,7 +28,7 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/user_weight_txt"
+                    android:id="@+id/user_duration_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
@@ -42,7 +42,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
-                    android:id="@+id/user_sleepmin_txt"
+                    android:id="@+id/user_steps_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""

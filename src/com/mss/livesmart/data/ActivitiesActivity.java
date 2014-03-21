@@ -2,7 +2,9 @@ package com.mss.livesmart.data;
 
 import java.util.ArrayList;
 
+import com.mss.livesmart.HealthDatabaseHandler;
 import com.mss.livesmart.R;
+import com.mss.livesmart.entities.Activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -20,12 +22,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RecommendationActivity extends Activity {
+public class ActivitiesActivity extends Activity {
 	Button add_btn;
 	ListView Recommendation_listview;
-	ArrayList<DataEntry> recommendation_data = new ArrayList<DataEntry>();
-	Recommendation_Adapter cAdapter;
-	DatabaseHandler db;
+	ArrayList<Activities> recommendation_data = new ArrayList<Activities>();
+	Activities_Adapter cAdapter;
+	HealthDatabaseHandler db;
 	String Toast_msg;
 
 	@Override
@@ -48,7 +50,7 @@ public class RecommendationActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent add_user = new Intent(RecommendationActivity.this,
+				Intent add_user = new Intent(ActivitiesActivity.this,
 						AddUpdateRecActivity.class);
 				add_user.putExtra("called", "add");
 				add_user.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -62,25 +64,23 @@ public class RecommendationActivity extends Activity {
 
 	public void Set_Referash_Data() {
 		recommendation_data.clear();
-		db = new DatabaseHandler(this);
-		ArrayList<DataEntry> recommendation_array_from_db = db.Get_Recommendations();
+		db = new HealthDatabaseHandler(this);
+		ArrayList<Activities> activities_array_from_db = db.getActivities();
 
-		for (int i = 0; i < recommendation_array_from_db.size(); i++) {
+		for (int i = 0; i < activities_array_from_db.size(); i++) {
 
-			int tidno = recommendation_array_from_db.get(i).getId();
-			String weight = recommendation_array_from_db.get(i).getWeight();
-			String distance = recommendation_array_from_db.get(i).getDistance();
-			String sleepmin = recommendation_array_from_db.get(i).getSleepmin();
-			DataEntry cnt = new DataEntry();
-			cnt.setId(tidno);
-			cnt.setWeight(weight);
-			cnt.setSleepmin(sleepmin);
+			double duration = activities_array_from_db.get(i).getDuration();
+			int distance = activities_array_from_db.get(i).getDistance();
+			int steps = activities_array_from_db.get(i).getSteps();
+			Activities cnt = new Activities();
+			cnt.setDuration(duration);
+			cnt.setSteps(steps);
 			cnt.setDistance(distance);
 
 			recommendation_data.add(cnt);
 		}
 		db.close();
-		cAdapter = new Recommendation_Adapter(RecommendationActivity.this,
+		cAdapter = new Activities_Adapter(ActivitiesActivity.this,
 				R.layout.activity_recommendations, recommendation_data);
 		Recommendation_listview.setAdapter(cAdapter);
 		cAdapter.notifyDataSetChanged();
@@ -98,14 +98,14 @@ public class RecommendationActivity extends Activity {
 
 	}
 
-	public class Recommendation_Adapter extends ArrayAdapter<DataEntry> {
+	public class Activities_Adapter extends ArrayAdapter<Activities> {
 		Activity activity;
 		int layoutResourceId;
-		DataEntry user;
-		ArrayList<DataEntry> data = new ArrayList<DataEntry>();
+		Activities user;
+		ArrayList<Activities> data = new ArrayList<Activities>();
 
-		public Recommendation_Adapter(Activity act, int layoutResourceId,
-				ArrayList<DataEntry> data) {
+		public Activities_Adapter(Activity act, int layoutResourceId,
+				ArrayList<Activities> data) {
 			super(act, layoutResourceId, data);
 			this.layoutResourceId = layoutResourceId;
 			this.activity = act;
@@ -123,10 +123,10 @@ public class RecommendationActivity extends Activity {
 
 				row = inflater.inflate(layoutResourceId, parent, false);
 				holder = new UserHolder();
-				holder.weight = (TextView) row
-						.findViewById(R.id.user_weight_txt);
-				holder.sleepmin = (TextView) row
-						.findViewById(R.id.user_sleepmin_txt);
+				holder.duration = (TextView) row
+						.findViewById(R.id.user_duration_txt);
+				holder.steps = (TextView) row
+						.findViewById(R.id.user_steps_txt);
 				holder.distance = (TextView) row
 						.findViewById(R.id.user_distance_txt);
 				holder.edit = (Button) row.findViewById(R.id.btn_update);
@@ -136,24 +136,25 @@ public class RecommendationActivity extends Activity {
 				holder = (UserHolder) row.getTag();
 			}
 			user = data.get(position);
-			holder.edit.setTag(user.getId());
-			holder.delete.setTag(user.getId());
-			holder.weight.setText(user.getWeight());
-			holder.sleepmin.setText(user.getSleepmin());
-			holder.distance.setText(user.getDistance());
+			holder.edit.setTag(user.getDate());
+			holder.delete.setTag(user.getStartTime());
+			holder.duration.setText(String.valueOf(user.getDuration()));
+			holder.steps.setText(String.valueOf(user.getSteps()));
+			holder.distance.setText(String.valueOf(user.getDistance()));
 
 			holder.edit.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					Log.i("Edit Button Clicked", "**********");
-
-					Intent update_user = new Intent(activity,
-							AddUpdateRecActivity.class);
-					update_user.putExtra("called", "update");
-					update_user.putExtra("RECOMMENDATION_ID", v.getTag().toString());
-					activity.startActivity(update_user);
+//					// TODO Auto-generated method stub
+//					Log.i("Edit Button Clicked", "**********");
+//
+//					Intent update_user = new Intent(activity,
+//							AddUpdateRecActivity.class);
+//					update_user.putExtra("called", "update");
+//					update_user.putExtra("RECOMMENDATION_ID", v.getTag()
+//							.toString());
+//					activity.startActivity(update_user);
 
 				}
 			});
@@ -175,11 +176,11 @@ public class RecommendationActivity extends Activity {
 								@Override
 								public void onClick(DialogInterface dialog,
 										int which) {
-									// MyDataObject.remove(positionToRemove);
-									DatabaseHandler dBHandler = new DatabaseHandler(
-											activity.getApplicationContext());
-									dBHandler.Delete_Recommendation(user_id);
-									RecommendationActivity.this.onResume();
+//									// MyDataObject.remove(positionToRemove);
+//									DatabaseHandler dBHandler = new DatabaseHandler(
+//											activity.getApplicationContext());
+//									dBHandler.Delete_Recommendation(user_id);
+//									ActivitiesActivity.this.onResume();
 
 								}
 							});
@@ -192,8 +193,8 @@ public class RecommendationActivity extends Activity {
 		}
 
 		class UserHolder {
-			TextView weight;
-			TextView sleepmin;
+			TextView duration;
+			TextView steps;
 			TextView distance;
 			Button edit;
 			Button delete;

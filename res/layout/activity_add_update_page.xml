@@ -14,11 +14,11 @@
         android:textSize="18dp" />
 
     <EditText
-        android:id="@+id/add_weight"
+        android:id="@+id/add_duration"
         android:layout_width="128dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Weight"
+        android:hint="Duration"
         android:inputType="number|numberDecimal" >
 
         <requestFocus />
@@ -35,12 +35,12 @@
         android:maxLength="12" />
 
     <EditText
-        android:id="@+id/add_sleepmin"
+        android:id="@+id/add_steps"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Sleep Minutes"
+        android:hint="Steps"
         android:inputType="number" />
 
     <LinearLayout
