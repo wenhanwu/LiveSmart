@@ -37,4 +37,10 @@
         android:hint="steps"
         android:inputType="number" />
 
+    <Button
+        android:id="@+id/save_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Activity" />
+
 </LinearLayout>

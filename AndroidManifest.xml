@@ -31,14 +31,6 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.mss.livesmart.PhotoAlbumActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
-            android:name="com.mss.livesmart.HeartRateActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
             android:name="com.mss.livesmart.InputHealthDataActivity"
             android:label="@string/app_name" >
         </activity>

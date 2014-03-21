@@ -9,6 +9,19 @@ public class Activities {
 	private String startTime;
 	private int steps;
 	
+	public Activities(){
+		
+	}
+
+	public Activities(int distance, double duration, String date,
+			String startTime, int steps) {
+		super();
+		this.distance = distance;
+		this.duration = duration;
+		this.date = date;
+		this.startTime = startTime;
+		this.steps = steps;
+	}
 
 	public int getSteps() {
 		return steps;

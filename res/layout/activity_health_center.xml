@@ -84,7 +84,7 @@
                  />
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/save_activity"
                 android:layout_width="60dp"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
@@ -233,7 +233,7 @@
                  />
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/save_activity"
                 android:layout_width="60dp"
                 android:layout_height="30dp"
                 android:layout_alignBaseline="@+id/edit_heart"
@@ -252,7 +252,7 @@
                 android:id="@+id/EditText02"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:layout_alignTop="@+id/button1"
+                android:layout_alignTop="@+id/save_activity"
                 android:layout_toRightOf="@+id/textSleep"
                 android:layout_weight="1"
                 android:background="#ffffff"
@@ -346,7 +346,7 @@
                 android:typeface="serif" />
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/save_activity"
                 android:layout_width="60dp"
                 android:layout_height="30dp"
                 android:layout_alignBaseline="@+id/textActivity"
