@@ -168,8 +168,8 @@ public class HealthDatabaseHandler extends SQLiteOpenHelper {
 
 	// TODO: modify it to take "count"
 	public ArrayList<Activities> getActivities() {
-
-		try {
+ 
+		try { 
 			activitiesList.clear();
 
 			// Select All Query
@@ -184,6 +184,7 @@ public class HealthDatabaseHandler extends SQLiteOpenHelper {
 			// looping through all rows and adding to list
 			if (cursor.moveToFirst()) {
 				do {
+					Log.e("1", "333333333333");
 					Activities activities = new Activities();
 					String timeStamp = cursor.getString(0);
 
@@ -203,6 +204,7 @@ public class HealthDatabaseHandler extends SQLiteOpenHelper {
 			// return list
 			cursor.close();
 			db.close();
+
 			return activitiesList;
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -1,5 +1,14 @@
 package com.mss.livesmart.entities;
 
+import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+
+import com.mss.livesmart.HealthDatabaseHandler;
+import com.mss.livesmart.R;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,8 +16,10 @@ import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.mss.livesmart.HealthDatabaseHandler;
 
 public class Test2 {
+
 	public static void main(String[] args) {
 		toJson();
 		toObject();
@@ -37,14 +48,14 @@ public class Test2 {
 		w1.setDate(curDate);
 		w1.setValue(172);
 
-		List<Weight> weightList = new ArrayList<Weight>();
+		ArrayList<Weight> weightList = new ArrayList<Weight>();
 		weightList.add(w0);
 		weightList.add(w1);
 
 		userInfo.setWeight(weightList);
 		healthData.setUserinfo(userInfo);
 
-		List<Activities> activities = new ArrayList<Activities>();
+		ArrayList<Activities> activities = new ArrayList<Activities>();
 		Activities activity0 = new Activities();
 		activity0.setDistance(999);
 		activity0.setDuration(888);
@@ -71,14 +82,44 @@ public class Test2 {
 		String json = "{'userinfo':{'age':45,'gender':'male','height':168,'weight':[{'value':65.3,'date':'2012-04-24'},{'value':65.3,'date':'2012-04-17'},{'value':65.3,'date':'2012-03-24'}],'hypertension':true,'diabetes':true,'insomnia':true,'cardio':true},'activities':[{'distance':500,'duration':7.3,'date':'2012-04-24','startTime':'18:20:42Z','steps':800},{'distance':1500,'duration':140,'date':'2012-04-17','startTime':'','steps':1700},{'distance':12500,'duration':1430,'date':'2012-03-24','startTime':'','steps':49300}],'sleep':[{'efficiency':4,'date':'2012-04-24','startTime':'18:25:43Z','minutesAsleep':453,'minutesAwake':34,'awakeningsCount':8,'timeInBed':541},{'efficiency':4,'date':'2012-04-17','startTime':'','minutesAsleep':453,'minutesAwake':34,'awakeningsCount':8,'timeInBed':541},{'efficiency':4,'date':'2012-03-24','startTime':'','minutesAsleep':453,'minutesAwake':34,'awakeningsCount':8,'timeInBed':541}],'heartBeats':[{'count':56,'date':'2012-04-24','time':'18:23:43Z'},{'count':60,'date':'2012-04-17','time':''},{'count':59,'date':'2012-03-24','time':''}],'bloodPressures':[{'systolic':100,'diastolic':71,'date':'2012-04-23','time':'18:23:43Z'},{'systolic':100,'diastolic':71,'date':'2012-04-17','time':''},{'systolic':100,'diastolic':71,'date':'2012-03-24','time':''}]}";
 		Gson gson = new Gson();
 		HealthData hd = gson.fromJson(json, HealthData.class);
-		String rtn="";
-		rtn+=(hd.getActivities().size());
-		rtn+=("\nuserinfo->weight£º" + 			hd.getUserinfo().getWeight().get(0).getValue());
-		rtn+=("\nGender£º" + 						hd.getUserinfo().getGender());
-		rtn+=("\nDistance£º" + 					hd.getActivities().get(0).getDistance());
-		rtn+=("\nHeart Beat count£º" + 			hd.getHeartBeats().get(0).getCount());
-		rtn+=("\nBlood Pressures Diastolic£º" + 	hd.getBloodPressures().get(0).getDiastolic());
-		rtn+=("\nEfficiency£º" + 					hd.getSleep().get(0).getEfficiency());
+		String rtn = "";
+		rtn += (hd.getActivities().size());
+		rtn += ("\nuserinfo->weight£º" + hd.getUserinfo().getWeight().get(0)
+				.getValue());
+		rtn += ("\nGender£º" + hd.getUserinfo().getGender());
+		rtn += ("\nDistance£º" + hd.getActivities().get(0).getDistance());
+		rtn += ("\nHeart Beat count£º" + hd.getHeartBeats().get(0).getCount());
+		rtn += ("\nBlood Pressures Diastolic£º" + hd.getBloodPressures().get(0)
+				.getDiastolic());
+		rtn += ("\nEfficiency£º" + hd.getSleep().get(0).getEfficiency());
 		return rtn;
+	}
+
+	public static String tryOBJ(Context a) {
+		HealthData hd = new HealthData();
+		HealthDatabaseHandler hdh = new HealthDatabaseHandler(a);
+		hd.setActivities(hdh.getActivities());
+		hd.setBloodPressures(hdh.getBloodPressures());
+		hd.setHeartBeats(hdh.getHeartBeats());
+		hd.setSleep(hdh.getSleep());
+
+		SharedPreferences settings;
+		Resources res = a.getResources();
+		settings = a.getSharedPreferences(
+				res.getString(R.string.personal_info), 0);
+
+		Log.i("Test2", "-------" + hdh.getActivities().size());
+		String rtn = "";
+		rtn += (hd.getActivities().size());
+		rtn += ("\nuserinfo->weight£º" + res
+				.getString(R.string.weight_in_kilogram));
+		rtn += ("\nGender£º" + res.getString(R.string.Gender));
+		rtn += ("\nDistance£º" + hd.getActivities().get(0).getDistance());
+		rtn += ("\nHeart Beat count£º" + hd.getHeartBeats().get(0).getCount());
+		rtn += ("\nBlood Pressures Diastolic£º" + hd.getBloodPressures().get(0)
+				.getDiastolic());
+		rtn += ("\nEfficiency£º" + hd.getSleep().get(0).getEfficiency());
+		return rtn;
+
 	}
 }

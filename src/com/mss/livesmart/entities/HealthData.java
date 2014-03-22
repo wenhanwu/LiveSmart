@@ -1,27 +1,28 @@
 package com.mss.livesmart.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HealthData {
 	private UserInfo userinfo;
-	private List<Activities> activities;
-	private List<Sleep> sleep;
-	private List<HeartBeats> heartBeats;
-	private List<BloodPressures> bloodPressures;
+	private ArrayList<Activities> activities;
+	private ArrayList<Sleep> sleep;
+	private ArrayList<HeartBeats> heartBeats;
+	private ArrayList<BloodPressures> bloodPressures;
 
-	public List<Sleep> getSleep() {
+	public ArrayList<Sleep> getSleep() {
 		return sleep;
 	}
 
-	public void setSleep(List<Sleep> sleep) {
+	public void setSleep(ArrayList<Sleep> sleep) {
 		this.sleep = sleep;
 	}
 
-	public List<HeartBeats> getHeartBeats() {
+	public ArrayList<HeartBeats> getHeartBeats() {
 		return heartBeats;
 	}
 
-	public void setHeartBeats(List<HeartBeats> heartBeats) {
+	public void setHeartBeats(ArrayList<HeartBeats> heartBeats) {
 		this.heartBeats = heartBeats;
 	}
 
@@ -29,7 +30,7 @@ public class HealthData {
 		return bloodPressures;
 	}
 
-	public void setBloodPressures(List<BloodPressures> bloodPressures) {
+	public void setBloodPressures(ArrayList<BloodPressures> bloodPressures) {
 		this.bloodPressures = bloodPressures;
 	}
 
@@ -46,7 +47,7 @@ public class HealthData {
 		return activities;
 	}
 
-	public void setActivities(List<Activities> activities) {
+	public void setActivities(ArrayList<Activities> activities) {
 		this.activities = activities;
 	}
 }

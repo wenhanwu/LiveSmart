@@ -29,7 +29,6 @@ public class ActivitiesActivity extends Activity {
 	Activities_Adapter cAdapter;
 	HealthDatabaseHandler db;
 	String Toast_msg;
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

@@ -5,6 +5,7 @@ import com.mss.livesmart.entities.*;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -23,6 +24,8 @@ public class MainActivity extends Activity {
 	MyImageView testDatabase;
 	SharedPreferences settings;
 	Resources res;
+	
+ 
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -83,7 +86,13 @@ public class MainActivity extends Activity {
 	            client.post(res.getString(R.string.engine_url), params, new AsyncHttpResponseHandler() {
 	                @Override
 	                public void onSuccess(String response) {
-	                	String str=Test2.toObject();
+	                	SharedPreferences settings; 
+	            		Resources res = getResources();
+	                    settings = getSharedPreferences(res.getString(R.string.personal_info), 0);
+	                    
+	                    res.getString(R.string.Gender);
+	                    res.getString(R.string.height_in_centemeter);
+	                	String str=Test2.tryOBJ(MainActivity.this);
 	                    Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();	                    
 	                }
 	            });
