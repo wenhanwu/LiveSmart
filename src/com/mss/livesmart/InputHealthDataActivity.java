@@ -6,9 +6,11 @@ import com.mss.livesmart.entities.Activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class InputHealthDataActivity extends Activity {
 	
@@ -42,7 +44,12 @@ public class InputHealthDataActivity extends Activity {
 							Integer.valueOf(s_steps));
 					dbHandler.addActivitiesEntry(activities);
 				}
+				toast_msg = "Data inserted successfully";
+				Toast.makeText(getApplicationContext(), toast_msg, Toast.LENGTH_LONG).show();
 				
+				
+				
+				clearTextFields();
 			}
 		});
 
@@ -54,5 +61,13 @@ public class InputHealthDataActivity extends Activity {
 		t_steps = (EditText) findViewById(R.id.steps);
 
 		b_save_activity = (Button) findViewById(R.id.save_activity);
+	}
+	
+	private void clearTextFields() {
+
+		t_distance.getText().clear();
+		t_duration.getText().clear();
+		t_steps.getText().clear();
+
 	}
 }

@@ -184,7 +184,7 @@ public class HealthDatabaseHandler extends SQLiteOpenHelper {
 			// looping through all rows and adding to list
 			if (cursor.moveToFirst()) {
 				do {
-					Log.e("1", "333333333333");
+					Log.e("Activity table", "getting activities from table");
 					Activities activities = new Activities();
 					String timeStamp = cursor.getString(0);
 

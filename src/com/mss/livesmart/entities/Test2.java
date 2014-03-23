@@ -84,14 +84,14 @@ public class Test2 {
 		HealthData hd = gson.fromJson(json, HealthData.class);
 		String rtn = "";
 		rtn += (hd.getActivities().size());
-		rtn += ("\nuserinfo->weight£º" + hd.getUserinfo().getWeight().get(0)
+		rtn += ("\nuserinfo->weight: " + hd.getUserinfo().getWeight().get(0)
 				.getValue());
-		rtn += ("\nGender£º" + hd.getUserinfo().getGender());
-		rtn += ("\nDistance£º" + hd.getActivities().get(0).getDistance());
-		rtn += ("\nHeart Beat count£º" + hd.getHeartBeats().get(0).getCount());
-		rtn += ("\nBlood Pressures Diastolic£º" + hd.getBloodPressures().get(0)
+		rtn += ("\nGender: " + hd.getUserinfo().getGender());
+		rtn += ("\nDistance: " + hd.getActivities().get(0).getDistance());
+		rtn += ("\nHeart Beat count: " + hd.getHeartBeats().get(0).getCount());
+		rtn += ("\nBlood Pressures Diastolic: " + hd.getBloodPressures().get(0)
 				.getDiastolic());
-		rtn += ("\nEfficiency£º" + hd.getSleep().get(0).getEfficiency());
+		rtn += ("\nEfficiency: " + hd.getSleep().get(0).getEfficiency());
 		return rtn;
 	}
 
@@ -108,17 +108,19 @@ public class Test2 {
 		settings = a.getSharedPreferences(
 				res.getString(R.string.personal_info), 0);
 
-		Log.i("Test2", "-------" + hdh.getActivities().size());
+		Log.i("in tryOBJ", "# of rows in activities table: " + hdh.getActivities().size());
 		String rtn = "";
 		rtn += (hd.getActivities().size());
-		rtn += ("\nuserinfo->weight£º" + res
+		
+		
+		rtn += ("\nuserinfo->weight: " + res
 				.getString(R.string.weight_in_kilogram));
-		rtn += ("\nGender£º" + res.getString(R.string.Gender));
-		rtn += ("\nDistance£º" + hd.getActivities().get(0).getDistance());
-		rtn += ("\nHeart Beat count£º" + hd.getHeartBeats().get(0).getCount());
-		rtn += ("\nBlood Pressures Diastolic£º" + hd.getBloodPressures().get(0)
+		rtn += ("\nGender: "+ res.getString(R.string.Gender));
+		rtn += ("\nDistance: " + hd.getActivities().get(0).getDistance());
+		rtn += ("\nHeart Beat count: " + hd.getHeartBeats().get(0).getCount());
+		rtn += ("\nBlood Pressures Diastolic: " + hd.getBloodPressures().get(0)
 				.getDiastolic());
-		rtn += ("\nEfficiency£º" + hd.getSleep().get(0).getEfficiency());
+		rtn += ("\nEfficiency: " + hd.getSleep().get(0).getEfficiency());
 		return rtn;
 
 	}

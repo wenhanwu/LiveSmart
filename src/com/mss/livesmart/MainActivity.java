@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -93,7 +94,8 @@ public class MainActivity extends Activity {
 	                    res.getString(R.string.Gender);
 	                    res.getString(R.string.height_in_centemeter);
 	                	String str=Test2.tryOBJ(MainActivity.this);
-	                    Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();	                    
+	                    Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();	  
+	                    Log.i("Output", str);
 	                }
 	            });
 			}
