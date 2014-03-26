@@ -27,7 +27,7 @@
                 android:id="@+id/btnHeartRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#800020"
+                android:background="#FFFFFF"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
@@ -39,398 +39,277 @@
                 android:gravity="left|top"
                 android:paddingLeft="5dip"
                 android:text="Heart Rate"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:typeface="serif"
                  android:textSize="20dp" />
   <!--  android:background="#FFFFFF"android:hint="@string/edit_message"-->
 
-
-			<EditText
-			    android:id="@+id/edit_heart"
-			    android:layout_width="80dp"
-			    android:layout_height="30dp"
-			    
-			    android:gravity="center_vertical|center_horizontal"
-			    android:layout_centerVertical="true"
-    android:layout_centerInParent="true"
-
-
-			    android:layout_weight="1"
-			    android:background="#ffffff"
-			    android:textColor="@android:color/darker_gray"                
-                android:textStyle="bold"
-                android:typeface="serif"
-			    android:ems="10"
-			    android:textSize="20dp"
-			    android:paddingLeft="10dip"
-				android:paddingRight="10dip"
-				android:singleLine="true"/>
-
-            <TextView
-                android:id="@+id/textBPM"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/add_HeartRate"
+                android:layout_width="200dip"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/edit_heart"
-                android:layout_weight="1"
-                android:text="BPM"
-                android:textColor="@android:color/white"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:typeface="serif"
-                			    android:paddingLeft="10dip"
-				android:paddingRight="10dip"
-                 />
-
-            <Button
-                android:id="@+id/save_activity"
-                android:layout_width="60dp"
-                android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/textBPM"
-                android:background="#ffffff"
-
-                android:text="Edit"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:typeface="serif"
-    			android:paddingLeft="10dip"
-				android:paddingRight="10dip" />
+                android:ems="10"
+                android:hint="Heart Rate in BMP"
+                android:inputType="number|numberDecimal"
+                android:padding="10dip"
+        		android:layout_alignParentRight="true"
+                android:layout_marginRight="10dip" />
 						
         </RelativeLayout>
-        <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1" android:gravity="right|center_vertical" android:orientation="vertical">
-            <Button android:id="@+id/btnBloodPressure" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_marginBottom="5dip" android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" android:background="#ED9121" android:gravity="left|top" android:paddingLeft="5dip" android:text="Blood Pressure" android:textColor="@android:color/white" android:textSize="20dp" android:textStyle="bold" android:typeface="serif"/>
 
-            <TextView
-                android:id="@+id/TextView01"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/editBP"
-                android:layout_toRightOf="@+id/edit_BP"
-                android:layout_weight="1"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:text="mm"
-                android:textColor="@android:color/white"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:typeface="serif" />
-
-            <TextView
-                android:id="@+id/TextView02"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/editBP"
-                android:layout_toRightOf="@+id/EditText01"
-                android:layout_weight="1"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:text="HG"
-                android:textColor="@android:color/white"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:typeface="serif" />
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="right|center_vertical"
+            android:orientation="vertical" >
 
             <Button
-                android:id="@+id/editBP"
-                android:layout_width="60dp"
-                android:layout_height="30dp"
-                android:layout_alignBaseline="@+id/edit_BP"
-                android:layout_alignBottom="@+id/edit_BP"
-                android:layout_alignRight="@+id/btnBloodPressure"
-                android:background="#ffffff"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:text="Edit"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:typeface="serif" />
-
-            <EditText
-                android:id="@+id/edit_BP"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:layout_alignLeft="@+id/btnBloodPressure"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="18dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:ems="10"
-                android:gravity="center_vertical"
-                android:singleLine="true"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:typeface="serif" />
-
-            <EditText
-                android:id="@+id/EditText01"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:layout_alignTop="@+id/TextView01"
-                android:layout_marginLeft="31dp"
-                android:layout_toRightOf="@+id/TextView01"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:ems="10"
-                android:gravity="center_vertical"
-                android:singleLine="true"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:typeface="serif" >
-
-                <requestFocus />
-            </EditText>
-
-        </RelativeLayout>
-
-       <RelativeLayout
-           android:layout_width="fill_parent"
-           android:layout_height="fill_parent"
-		   android:layout_weight="1"
-		           
-		   android:orientation="vertical" >
-        
-        <Button
-            android:id="@+id/btnSleepInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#03C03C"
-            android:text="Sleep Information"
+                android:id="@+id/btnBloodPressure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dip" 
-                android:layout_marginBottom="5dip" 
-                android:layout_marginLeft="5dip" 
-                android:layout_marginRight="5dip" 
+                android:layout_marginBottom="5dip"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+                android:layout_marginTop="5dip"
+                android:background="#FFFFFF"
+                android:textColor="@android:color/black"
                 android:gravity="left|top"
                 android:paddingLeft="5dip"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:typeface="serif"
-                 android:textSize="20dp" />
+                android:text="Blood Pressure"
 
-            <TextView
-                android:id="@+id/textSleep"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/edit_heart"
-                android:layout_weight="1"
-                android:text="Sleep"
-                android:textColor="@android:color/white"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:typeface="serif"
-                			    android:paddingLeft="10dip"
-				android:paddingRight="10dip"
-                 />
-
-            <Button
-                android:id="@+id/save_activity"
-                android:layout_width="60dp"
-                android:layout_height="30dp"
-                android:layout_alignBaseline="@+id/edit_heart"
-                android:layout_alignBottom="@+id/edit_heart"
-                android:layout_alignRight="@+id/btnSleepInfo"
-                android:background="#ffffff"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:text="Edit"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:typeface="serif" />
-
-            <EditText
-                android:id="@+id/EditText02"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:layout_alignTop="@+id/save_activity"
-                android:layout_toRightOf="@+id/textSleep"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:ems="10"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:singleLine="true"
-                android:textColor="@android:color/darker_gray"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:typeface="serif" />
 
-            <TextView
-                android:id="@+id/TextView03"
-                android:layout_width="80dp"
+            <LinearLayout
+                android:layout_width="200dip"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textSleep"
-                android:layout_alignBottom="@+id/textSleep"
-                android:layout_toRightOf="@+id/EditText02"
-                android:layout_weight="1"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:text="Awake"
-                android:textColor="@android:color/white"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:typeface="serif" />
+				android:layout_centerVertical="true"
+				android:layout_alignParentRight="true"
+				
+				>
+				
+                <EditText
+                    android:id="@+id/add_BP1"
+                    android:layout_width="100dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="BP"
+                    android:inputType="number|numberDecimal"
+                    android:padding="10dip"
+                     />
 
-            <EditText
-                android:id="@+id/edit_heart"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:layout_alignLeft="@+id/btnSleepInfo"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="19dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:ems="10"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:singleLine="true"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:typeface="serif" />
+                <EditText
+                    android:id="@+id/add_BP2"
+                    android:layout_width="100dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="BP"
+                    android:inputType="number|numberDecimal"
+                    android:padding="10dip"
+                    
+                     />
+
+            </LinearLayout>
 
         </RelativeLayout>
 
        <RelativeLayout
            android:layout_width="fill_parent"
            android:layout_height="fill_parent"
-		   android:layout_weight="1"
-           android:orientation="vertical">
-       
-        <Button
-            android:id="@+id/btnActivityCenter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="Activity"
-            android:background="#006600"
-     			android:layout_alignParentBottom="true"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dip" 
-                android:layout_marginBottom="5dip" 
-                android:layout_marginLeft="5dip" 
-                android:layout_marginRight="5dip" 
+           android:layout_weight="1"
+           android:orientation="vertical" >
+
+           <Button
+               android:id="@+id/btnSleepInfo"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_alignParentBottom="true"
+               android:layout_alignParentTop="true"
+               android:layout_centerHorizontal="true"
+               android:layout_marginBottom="5dip"
+               android:layout_marginLeft="5dip"
+               android:layout_marginRight="5dip"
+               android:layout_marginTop="5dip"
+                android:background="#FFFFFF"
+                android:textColor="@android:color/black"
                 android:gravity="left|top"
-                android:paddingLeft="5dip"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:typeface="serif"
-                 android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/textActivity"
-                android:layout_width="70dp"
+               android:paddingLeft="5dip"
+               android:text="Sleep Information"
+               android:textSize="20dp"
+               android:textStyle="bold"
+               android:typeface="serif" />
+           
+			<LinearLayout
+                android:layout_width="350dip"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/edit_heart"
-                android:layout_weight="1"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:text="Steps"
-                android:textColor="@android:color/white"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:typeface="serif" />
+				android:layout_centerVertical="true"
+				android:layout_alignParentRight="true"
+				
+				>
+				
+                <EditText
+                    android:id="@+id/add_Awake"
+                    android:layout_width="140dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Awake"
+                    android:inputType="number|numberDecimal"
+                    android:padding="10dip"
+                     />
 
-            <Button
-                android:id="@+id/save_activity"
-                android:layout_width="60dp"
-                android:layout_height="30dp"
-                android:layout_alignBaseline="@+id/textActivity"
-                android:layout_alignBottom="@+id/textActivity"
-                android:layout_alignRight="@+id/btnActivityCenter"
-                android:background="#ffffff"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:text="Edit"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:typeface="serif" />
+                <EditText
+                    android:id="@+id/add_Sleep"
+                    android:layout_width="140dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Sleep"
+                    android:inputType="number|numberDecimal"
+                    android:padding="10dip"
+                    
+                     />
+                 <EditText
+                    android:id="@+id/add_inBed"
+                    android:layout_width="180dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Total in Bed"
+                    android:inputType="number|numberDecimal"
+                    android:padding="10dip"
+                     />
 
-            <EditText
-                android:id="@+id/edit_heart"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:layout_alignLeft="@+id/btnActivityCenter"
-                android:layout_alignTop="@+id/textActivity"
-                android:layout_marginLeft="16dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:ems="10"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:singleLine="true"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:typeface="serif" />
+            </LinearLayout>
+       </RelativeLayout>
 
-            <EditText
-                android:id="@+id/EditText03"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:layout_alignTop="@+id/textActivity"
-                android:layout_centerHorizontal="true"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:ems="10"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:singleLine="true"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:typeface="serif" />
+       <RelativeLayout
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+           android:layout_weight="1"
+           android:orientation="vertical" >
 
-            <TextView
-                android:id="@+id/TextView04"
-                android:layout_width="wrap_content"
+           <Button
+               android:id="@+id/btnActivityCenter"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_alignParentBottom="true"
+               android:layout_alignParentLeft="true"
+               android:layout_alignParentTop="true"
+               android:layout_centerHorizontal="true"
+               android:layout_marginBottom="5dip"
+               android:layout_marginLeft="5dip"
+               android:layout_marginRight="5dip"
+               android:layout_marginTop="5dip"
+                android:background="#FFFFFF"
+                android:textColor="@android:color/black"
+                android:gravity="left|top"
+               android:paddingLeft="5dip"
+               android:text="Activity"
+               android:textSize="20dp"
+               android:textStyle="bold"
+               android:typeface="serif" />
+				
+		    <LinearLayout
+                android:layout_width="350dip"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/textActivity"
-                android:layout_toRightOf="@+id/EditText03"
-                android:layout_weight="1"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:text="Duration"
-                android:textColor="@android:color/white"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                android:typeface="serif" />
+				android:layout_centerVertical="true"
+				android:layout_alignParentRight="true"
+				
+				>
+				
+                <EditText
+                    android:id="@+id/add_Distance"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Distance"
+                    android:inputType="number|numberDecimal"
+                    android:padding="10dip"
+                     />
 
-        </RelativeLayout>
+                <EditText
+                    android:id="@+id/add_Duration"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Duration"
+                    android:inputType="number|numberDecimal"
+                    android:padding="10dip"
+                    
+                     />
+                 <EditText
+                    android:id="@+id/add_inBed"
+                    android:layout_width="180dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Steps"
+                    android:inputType="number|numberDecimal"
+                    android:padding="10dip"
+                     />
+
+            </LinearLayout>
+       </RelativeLayout>
+
               <RelativeLayout
            android:layout_width="fill_parent"
            android:layout_height="fill_parent"
-android:layout_weight="1"
+		   android:layout_weight="1"
            android:orientation="vertical" >
-       
-        <Button
-            android:id="@+id/btnGetReco"
-            android:layout_width="match_parent"
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:layout_alignParentRight="true"
+				
+				>
+            <Button
+            android:id="@+id/btn_saveData"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginBottom="28dp"
             android:background="#3A3A38"
-            android:text="Get Recommendation"
+            android:text="Save Health Data"
+            android:textColor="#ADFF2F"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:padding="10dip"
+            />
+            
+        <Button
+            android:id="@+id/btnGetReco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="28dp"
+            android:background="#3A3A38"
+            android:text="Recommendation"
             android:textColor="#ADFF2F"
             android:textStyle="bold"
             android:typeface="serif" />
+         </LinearLayout>
+        
         </RelativeLayout>
     </LinearLayout>
     
