@@ -21,6 +21,7 @@
     <string name="Cardio">Cardio</string>
     <string name="Diabetes">Diabetes</string>
     <string name="Gender">Gender</string>
+    <string name="gender_spinner_value">Gender Spinner Index Position</string>
     <string name="weight_in_kilogram">WeightInKG</string>
     <string name="height_in_centemeter">HeightInCM</string>
     <string name="day_of_birth">DOBday</string>

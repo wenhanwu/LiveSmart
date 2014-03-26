@@ -2,7 +2,6 @@ package com.mss.livesmart;
 
 import com.mss.livesmart.dialogs.EditDateOfBirthDialog;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -25,15 +24,15 @@ public class PersonalInfoActivity extends FragmentActivity implements EditDateOf
 	
 	public void onChangeDOBComplete(int day, int month, int year){
 	    this.day = day;
-        this.month = month;
-        this.year = year;
+	    this.month = month;
+	    this.year = year;
 	    	    
 	    // update date of birth display
 	    txtDOB.setText(getDateOfBirth());
 	    
 	}
 	
-	@Override
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_info);
@@ -45,7 +44,7 @@ public class PersonalInfoActivity extends FragmentActivity implements EditDateOf
         year = settings.getInt(res.getString(R.string.year_of_birth), 2013);
         
         spinnerGender = (Spinner) findViewById(R.id.spinnerGender);
-        spinnerGender.setSelection(settings.getInt(res.getString(R.string.Gender), 0));
+        spinnerGender.setSelection(settings.getInt(res.getString(R.string.gender_spinner_value), 0));
         
         txtDOB = (EditText) findViewById(R.id.txtDOB);
         txtDOB.setText(getDateOfBirth());
@@ -102,13 +101,13 @@ public class PersonalInfoActivity extends FragmentActivity implements EditDateOf
 	public void  savePersonalInfo() {
 		
 		SharedPreferences.Editor editor = settings.edit();				
-		editor.putInt(res.getString(R.string.Gender), spinnerGender.getSelectedItemPosition());
-		
+		editor.putInt(res.getString(R.string.gender_spinner_value), spinnerGender.getSelectedItemPosition());
+		editor.putString(res.getString(R.string.Gender), getGender(spinnerGender.getSelectedItemPosition()));
 		editor.putString(res.getString(R.string.weight_in_kilogram), txtWeight.getText().toString());
 		editor.putString(res.getString(R.string.height_in_centemeter), txtHeight.getText().toString());
 		
-		editor.putInt(res.getString(R.string.day_of_birth), day);
-        editor.putInt(res.getString(R.string.month_of_birth), month);
+        editor.putInt(res.getString(R.string.day_of_birth), day);
+		editor.putInt(res.getString(R.string.month_of_birth), month);
         editor.putInt(res.getString(R.string.year_of_birth), year);
         
 		editor.putBoolean(res.getString(R.string.Hypertension), hypertensionCbx.isChecked());
@@ -117,6 +116,17 @@ public class PersonalInfoActivity extends FragmentActivity implements EditDateOf
 		editor.putBoolean(res.getString(R.string.Diabetes), diabetesCbx.isChecked());
 		
 		editor.commit();
+	}
+	
+	public String getGender(int spinnerIndex) {
+	    String gender = "Default";
+	    switch(spinnerIndex){
+	        case 0: gender = "Male";
+	            break;
+	        case 1: gender = "Female";	
+	            break;
+	    }
+	    return gender;
 	}
 
 }
