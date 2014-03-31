@@ -108,19 +108,32 @@ public class Test2 {
 		settings = a.getSharedPreferences(
 				res.getString(R.string.personal_info), 0);
 
-		Log.i("in tryOBJ", "# of rows in activities table: " + hdh.getActivities().size());
+		Log.i("in tryOBJ", "# of rows in activities table: "
+				+ hdh.getActivities().size());
 		String rtn = "";
-		rtn += (hd.getActivities().size());
-		
-		
+		// rtn += (hd.getActivities().size());
+
 		rtn += ("\nuserinfo->weight: " + res
 				.getString(R.string.weight_in_kilogram));
-		rtn += ("\nGender: "+ res.getString(R.string.Gender));
-		rtn += ("\nDistance: " + hd.getActivities().get(0).getDistance());
-		rtn += ("\nHeart Beat count: " + hd.getHeartBeats().get(0).getCount());
-		rtn += ("\nBlood Pressures Diastolic: " + hd.getBloodPressures().get(0)
-				.getDiastolic());
-		rtn += ("\nEfficiency: " + hd.getSleep().get(0).getEfficiency());
+		rtn += ("\nGender: " + res.getString(R.string.Gender));
+
+		if (hd.getActivities().size() > 0) {
+			rtn += ("\nDistance: " + hd.getActivities().get(0).getDistance());
+		}
+
+		if (hd.getHeartBeats().size() > 0) {
+			rtn += ("\nHeart Beat count: " + hd.getHeartBeats().get(0)
+					.getCount());
+		}
+
+		if (hd.getBloodPressures().size() > 0) {
+			rtn += ("\nBlood Pressures Diastolic: " + hd.getBloodPressures()
+					.get(0).getDiastolic());
+		}
+		if (hd.getSleep().size() > 0) {
+			rtn += ("\nEfficiency: " + hd.getSleep().get(0).getEfficiency());
+		}
+
 		return rtn;
 
 	}

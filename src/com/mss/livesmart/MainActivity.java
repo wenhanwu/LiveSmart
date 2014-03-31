@@ -5,6 +5,9 @@ import com.mss.livesmart.entities.*;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -87,12 +90,7 @@ public class MainActivity extends Activity {
 	            client.post(res.getString(R.string.engine_url), params, new AsyncHttpResponseHandler() {
 	                @Override
 	                public void onSuccess(String response) {
-	                	SharedPreferences settings; 
-	            		Resources res = getResources();
-	                    settings = getSharedPreferences(res.getString(R.string.personal_info), 0);
-	                    
-	                    res.getString(R.string.Gender);
-	                    res.getString(R.string.height_in_centemeter);
+
 	                	String str=Test2.tryOBJ(MainActivity.this);
 	                    Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();	  
 	                    Log.i("Output", str);
@@ -121,6 +119,7 @@ public class MainActivity extends Activity {
 	    return super.onCreateOptionsMenu(menu);
 	}
 	
+	@SuppressLint("NewApi")
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle presses on the action bar items
@@ -132,8 +131,32 @@ public class MainActivity extends Activity {
 	            String request = "";
 	            RequestParams params = new RequestParams("json", request);
 	            client.post(res.getString(R.string.engine_url), params, new AsyncHttpResponseHandler() {
-	                @Override
+	                @SuppressLint("NewApi")
+					@Override
 	                public void onSuccess(String response) {
+ 
+	                	
+	                	// prepare intent which is triggered if the
+	                	// notification is selected
+	                	Intent intent = new Intent(getApplicationContext(), MessageCenterActivity.class);
+	                	PendingIntent pIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+	                	
+	                	// build notification
+	                	// the addAction re-use the same intent to keep the example short
+	                	Notification n  = new Notification.Builder(getApplicationContext())
+	                			.setSmallIcon(R.drawable.ic_launcher)
+	                	        .setContentTitle("New mail from " + "test@gmail.com")
+	                	        .setContentText("Subject")
+	                	        .setContentIntent(pIntent)
+	                	        .setAutoCancel(true)
+	                	        .addAction(0, "Go to Message Center", pIntent).build();
+	                	    
+	                	  
+	                	NotificationManager notificationManager = 
+	                	  (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+	                	notificationManager.notify(0, n); 
+	                	
 	                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();	                    
 	                }
 	            });

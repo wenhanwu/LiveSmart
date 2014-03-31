@@ -137,14 +137,14 @@ public class ActivitiesActivity extends Activity {
 			user = data.get(position);
 			holder.edit.setTag(user.getDate());
 			holder.delete.setTag(user.getStartTime());
-			holder.duration.setText(String.valueOf(user.getDuration()));
-			holder.steps.setText(String.valueOf(user.getSteps()));
-			holder.distance.setText(String.valueOf(user.getDistance()));
+			holder.duration.setText("Duration: " +String.valueOf(user.getDuration()));
+			holder.steps.setText("Steps: "+ String.valueOf(user.getSteps()));
+			holder.distance.setText("Distance: "+String.valueOf(user.getDistance()));
 
-			holder.edit.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
+//			holder.edit.setOnClickListener(new OnClickListener() {
+//
+//				@Override
+//				public void onClick(View v) {
 //					// TODO Auto-generated method stub
 //					Log.i("Edit Button Clicked", "**********");
 //
@@ -154,39 +154,39 @@ public class ActivitiesActivity extends Activity {
 //					update_user.putExtra("RECOMMENDATION_ID", v.getTag()
 //							.toString());
 //					activity.startActivity(update_user);
-
-				}
-			});
-			holder.delete.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(final View v) {
-					// TODO Auto-generated method stub
-
-					// show a message while loader is loading
-
-					AlertDialog.Builder adb = new AlertDialog.Builder(activity);
-					adb.setTitle("Delete?");
-					adb.setMessage("Are you sure you want to delete ");
-					final int user_id = Integer.parseInt(v.getTag().toString());
-					adb.setNegativeButton("Cancel", null);
-					adb.setPositiveButton("Ok",
-							new AlertDialog.OnClickListener() {
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
+//
+//				}
+//			});
+//			holder.delete.setOnClickListener(new OnClickListener() {
+//
+//				@Override
+//				public void onClick(final View v) {
+//					// TODO Auto-generated method stub
+//
+//					// show a message while loader is loading
+//
+//					AlertDialog.Builder adb = new AlertDialog.Builder(activity);
+//					adb.setTitle("Delete?");
+//					adb.setMessage("Are you sure you want to delete ");
+//					final int user_id = Integer.parseInt(v.getTag().toString());
+//					adb.setNegativeButton("Cancel", null);
+//					adb.setPositiveButton("Ok",
+//							new AlertDialog.OnClickListener() {
+//								@Override
+//								public void onClick(DialogInterface dialog,
+//										int which) {
 //									// MyDataObject.remove(positionToRemove);
 //									DatabaseHandler dBHandler = new DatabaseHandler(
 //											activity.getApplicationContext());
 //									dBHandler.Delete_Recommendation(user_id);
 //									ActivitiesActivity.this.onResume();
-
-								}
-							});
-					adb.show();
-				}
-
-			});
+//
+//								}
+//							});
+//					adb.show();
+//				}
+//
+//			});
 			return row;
 
 		}
