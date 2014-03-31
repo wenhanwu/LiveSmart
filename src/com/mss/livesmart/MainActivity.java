@@ -91,9 +91,8 @@ public class MainActivity extends Activity {
 	            		Resources res = getResources();
 	                    settings = getSharedPreferences(res.getString(R.string.personal_info), 0);
 	                    
-	                    res.getString(R.string.Gender);
-	                    res.getString(R.string.height_in_centemeter);
-	                	String str=Test2.tryOBJ(MainActivity.this);
+	                     
+	                	String str=Test2.tryOBJ(MainActivity.this, settings, res);
 	                    Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();	  
 	                    Log.i("Output", str);
 	                }
