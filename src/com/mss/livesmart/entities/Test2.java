@@ -2,9 +2,11 @@ package com.mss.livesmart.entities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.content.*;
 
 import com.mss.livesmart.HealthDatabaseHandler;
 import com.mss.livesmart.R;
@@ -95,7 +97,7 @@ public class Test2 {
 		return rtn;
 	}
 
-	public static String tryOBJ(Context a) {
+	public static String tryOBJ(Context a, SharedPreferences settings, Resources res) {
 		HealthData hd = new HealthData();
 		HealthDatabaseHandler hdh = new HealthDatabaseHandler(a);
 		hd.setActivities(hdh.getActivities());
@@ -103,8 +105,7 @@ public class Test2 {
 		hd.setHeartBeats(hdh.getHeartBeats());
 		hd.setSleep(hdh.getSleep());
 
-		SharedPreferences settings;
-		Resources res = a.getResources();
+		
 		settings = a.getSharedPreferences(
 				res.getString(R.string.personal_info), 0);
 
@@ -133,6 +134,7 @@ public class Test2 {
 		if (hd.getSleep().size() > 0) {
 			rtn += ("\nEfficiency: " + hd.getSleep().get(0).getEfficiency());
 		}
+
 
 		return rtn;
 
