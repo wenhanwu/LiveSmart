@@ -41,7 +41,7 @@ public class PersonalInfoActivity extends FragmentActivity implements EditDateOf
         
         day = settings.getInt(res.getString(R.string.day_of_birth), 1);
         month = settings.getInt(res.getString(R.string.month_of_birth), 1);
-        year = settings.getInt(res.getString(R.string.year_of_birth), 2013);
+        year = settings.getInt(res.getString(R.string.year_of_birth), 1985);
         
         spinnerGender = (Spinner) findViewById(R.id.spinnerGender);
         spinnerGender.setSelection(settings.getInt(res.getString(R.string.gender_spinner_value), 0));

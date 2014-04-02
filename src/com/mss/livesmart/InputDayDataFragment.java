@@ -5,22 +5,21 @@ import java.util.Date;
 import com.mss.livesmart.entities.Activities;
 import com.mss.livesmart.entities.BloodPressures;
 
-import android.app.ActionBar;
-import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 
-public class InputHealthDataActivity extends Activity {
-
+public class InputDayDataFragment extends Fragment {
 
 	EditText t_distance, t_duration, t_steps;
 	Button b_save_activity, b_save_bloodPressure;
@@ -32,15 +31,16 @@ public class InputHealthDataActivity extends Activity {
 	int heartRate_result, systolic_result, diastolic_result;
 
 	
-	HealthDatabaseHandler dbHandler = new HealthDatabaseHandler(this);
+	HealthDatabaseHandler dbHandler = new HealthDatabaseHandler(getActivity());
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_input_health_data);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 
-		setupScreenComponents();
-		checkInputs();
+		View view = inflater.inflate(R.layout.activity_input_health_data, container, false);
+		
+		setupScreenComponents(view);
+//		checkInputs();
 
 		b_save_activity.setOnClickListener(new View.OnClickListener() {
 
@@ -58,11 +58,11 @@ public class InputHealthDataActivity extends Activity {
 					dbHandler.addActivitiesEntry(activities);
 
 					toast_msg = "Data inserted successfully";
-					Toast.makeText(getApplicationContext(), toast_msg,
+					Toast.makeText(getActivity(), toast_msg,
 							Toast.LENGTH_LONG).show();
 				}
 
-				clearTextFields();
+//				clearTextFields();
 			}
 		});
 
@@ -149,12 +149,17 @@ public class InputHealthDataActivity extends Activity {
 				dbHandler.addBloodPressureEntry(bloodPressures);
 
 				toast_msg = "BP Data inserted successfully";
-				Toast.makeText(getApplicationContext(), toast_msg,
+				Toast.makeText(getActivity(), toast_msg,
 						Toast.LENGTH_LONG).show();
 				
 			}
 		});
+		return view;
 	}
+	
+	
+
+//	}
 
 	private void checkInputs() {
 
@@ -223,29 +228,30 @@ public class InputHealthDataActivity extends Activity {
 
 	}
 
-	private void setupScreenComponents() {
-//		t_distance = (EditText) findViewById(R.id.distance);
-//		t_duration = (EditText) findViewById(R.id.duration);
-//		t_steps = (EditText) findViewById(R.id.steps);
+	private void setupScreenComponents(View view) {
+//		t_distance = (EditText) view.findViewById(R.id.distance);
+//		t_duration = (EditText) view.findViewById(R.id.duration);
+//		t_steps = (EditText) view.findViewById(R.id.steps);
 
-		b_save_activity = (Button) findViewById(R.id.save_activity);
+		b_save_activity = (Button) view.findViewById(R.id.save_activity);
 
-		heartRate_bar = (SeekBar) findViewById(R.id.heart_rate_bar);
-		heartRate_reading = (TextView) findViewById(R.id.heart_rate_reading);
+		heartRate_bar = (SeekBar) view.findViewById(R.id.heart_rate_bar);
+		heartRate_reading = (TextView) view.findViewById(R.id.heart_rate_reading);
 
-		systolic_bar = (SeekBar) findViewById(R.id.systolic_bar);
-		diastolic_bar = (SeekBar) findViewById(R.id.diastolic_bar);
-		systolic_reading = (TextView) findViewById(R.id.systolic_reading);
-		diastolic_reading = (TextView) findViewById(R.id.diastolic_reading);
+		systolic_bar = (SeekBar) view.findViewById(R.id.systolic_bar);
+		diastolic_bar = (SeekBar) view.findViewById(R.id.diastolic_bar);
+		systolic_reading = (TextView) view.findViewById(R.id.systolic_reading);
+		diastolic_reading = (TextView) view.findViewById(R.id.diastolic_reading);
 		
-		b_save_bloodPressure = (Button) findViewById(R.id.save_blood_pressure);
+		b_save_bloodPressure = (Button) view.findViewById(R.id.save_blood_pressure);
 	}
 
-	private void clearTextFields() {
+//	private void clearTextFields() {
+//
+//		t_distance.getText().clear();
+//		t_duration.getText().clear();
+//		t_steps.getText().clear();
+//
+//	}
 
-		t_distance.getText().clear();
-		t_duration.getText().clear();
-		t_steps.getText().clear();
-
-	}
 }
