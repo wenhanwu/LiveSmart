@@ -26,10 +26,11 @@
             android:id="@+id/distance_bar"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:max="1000" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/distance_reading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="  meters" />
@@ -40,7 +41,8 @@
         android:id="@+id/duration_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Duration" />
+        android:text="Duration"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,7 +52,8 @@
             android:id="@+id/duration_bar"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:max="48"  />
 
         <TextView
             android:id="@+id/duration_reading"
@@ -63,7 +66,7 @@
         android:id="@+id/step_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Steps" />
+        android:text="Steps"  />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,7 +76,8 @@
             android:id="@+id/step_bar"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:max="1000" />
 
         <TextView
             android:id="@+id/step_reading"
