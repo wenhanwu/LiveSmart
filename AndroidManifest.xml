@@ -8,6 +8,8 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="18" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/live_smart_logo"
@@ -35,7 +37,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.mss.livesmart.InputHealthDataActivity"
+            android:name="com.mss.livesmart.InputHealthDataActivityNew"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -51,6 +53,13 @@
             android:label="@string/title_activity_recommendation" >
         </activity>
         
+        <service android:name="com.mss.livesmart.notification.PopupService" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

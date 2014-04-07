@@ -114,9 +114,8 @@ public class Test2 {
 		String rtn = "";
 		// rtn += (hd.getActivities().size());
 
-		rtn += ("\nuserinfo->weight: " + res
-				.getString(R.string.weight_in_kilogram));
-		rtn += ("\nGender: " + res.getString(R.string.Gender));
+		rtn += ("\nuserinfo->weight: " + settings.getString(res.getString(R.string.weight_in_kilogram), "40"));
+		rtn += ("\nGender: " + settings.getString(res.getString(R.string.Gender), "female"));
 
 		if (hd.getActivities().size() > 0) {
 			rtn += ("\nDistance: " + hd.getActivities().get(0).getDistance());

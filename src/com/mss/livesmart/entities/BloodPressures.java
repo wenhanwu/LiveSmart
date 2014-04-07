@@ -7,6 +7,18 @@ public class BloodPressures {
 	private String date;
 	private String time;
 
+	public BloodPressures(){
+		
+	}
+	
+	public BloodPressures(int systolic, int diastolic, String date, String time) {
+		super();
+		this.systolic = systolic;
+		this.diastolic = diastolic;
+		this.date = date;
+		this.time = time;
+	}
+
 	public int getSystolic() {
 		return systolic;
 	}

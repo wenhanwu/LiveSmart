@@ -2,6 +2,7 @@ package com.mss.livesmart;
 
 import com.mss.livesmart.data.ActivitiesActivity;
 import com.mss.livesmart.entities.*;
+import com.mss.livesmart.notification.PopupService;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -18,6 +19,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.mss.livesmart.*;
 import com.loopj.android.http.*;
 
 public class MainActivity extends Activity {
@@ -74,7 +77,7 @@ public class MainActivity extends Activity {
 			public void onClick() {
 				// Starting a new intent
 				Intent inputHealthScreen = new Intent(getApplicationContext(),
-						InputHealthDataActivity.class);
+						InputHealthDataActivityNew.class);
 				startActivity(inputHealthScreen);
 			}
 		});
@@ -86,9 +89,7 @@ public class MainActivity extends Activity {
 			public void onClick() {
 
 				AsyncHttpClient client = new AsyncHttpClient();
-				// String request
-				// ="{\n    \"userinfo\": {\n        \"age\": 45,\n        \"gender\": \"male\",\n        \"height\": 168,\n        \"weight\": [\n            {\n                \"value\": 65.3,    //this is the data of current day\n                \"date\": \"2012-04-24\"\n            },\n            {\n                \"value\": 65.3,    // this should be average of last week\n                \"date\": \"2012-04-17\"    //by defult this should the last 7 days\n            },\n            {\n                \"value\": 65.3,    // this should be average of last month\n                \"date\": \"2012-03-24\"    //by defult this should the last 30 days\n            }\n        ],\n        \"hypertension\" : true,\n        \"diabetes\" : true,\n        \"insomnia\" : true,\n        \"cardio\" : true\n    },\n    \"activities\": [\n        {\n            \"distance\": 500,     //this is the data of current day\n            \"duration\": 7.3,\n            \"date\": \"2012-04-24\",\n            \"startTime\": \"18:20:42Z\",\n            \"steps\": 800\n        },\n        {\n            \"distance\": 1500,  // this is accumulation not average by last week\n            \"duration\": 140,\n            \"date\": \"2012-04-17\",\n            \"startTime\": \"\",    // timestamp should be empty\n            \"steps\": 1700\n        },\n        {\n            \"distance\": 12500, // this is accumulation not average by last month\n            \"duration\": 1430,\n            \"date\": \"2012-03-24\",\n            \"startTime\": \"\",   // timestamp should be empty\n            \"steps\": 49300\n        }\n    ],\n    \"sleep\": [\n        {\n            \"efficiency\": 4,    //this is the data of current day\n            \"date\": \"2012-04-24\",\n            \"startTime\": \"18:25:43Z\",\n            \"minutesAsleep\": 453,\n            \"minutesAwake\": 34,\n            \"awakeningsCount\": 8,\n            \"timeInBed\": 541\n        },\n        {\n            \"efficiency\": 4,   // this is the average of last week\n            \"date\": \"2012-04-17\",\n            \"startTime\": \"\",   // this should be empty\n            \"minutesAsleep\": 453,\n            \"minutesAwake\": 34,\n            \"awakeningsCount\": 8,\n            \"timeInBed\": 541\n        },\n        {\n            \"efficiency\": 4,  // this is the average of last month\n            \"date\": \"2012-03-24\",\n            \"startTime\": \"\",  // this should be empty\n            \"minutesAsleep\": 453,\n            \"minutesAwake\": 34,\n            \"awakeningsCount\": 8,\n            \"timeInBed\": 541\n        }\n    ],\n    \"heartBeats\": [\n        {\n            \"count\": 56,       //this is the data of current day\n           ,\n            \"time\": \"18:23:43Z\"\n        },\n        {\n            \"count\": 60,       //this is the average of last week\n            \"date\": \"2012-04-17\",\n            \"time\": \"\"\n        },\n        {\n            \"count\": 59,      //this is the average of last month\n            \"date\": \"2012-03-24\",\n            \"time\": \"\"\n        }\n    ],\n    \"bloodPressures\": [\n        {\n            \"systolic\": 100,         //this is the data of current day\n            \"diastolic\": 71,\n            \"date\": \"2012-04-23\",\n            \"time\": \"18:23:43Z\"\n        },\n        {\n            \"systolic\": 100,         //this is the average of last week\n            \"diastolic\": 71,\n            \"date\": \"2012-04-17\",     \n            \"time\": \"\"               // timestamp should be empty\n        },\n        {\n            \"systolic\": 100,         //this is the average of last month\n            \"diastolic\": 71,\n            \"date\": \"2012-03-24\",\n            \"time\": \"\"               // timestamp should be empty\n        }\n    ]\n}";
-				String request = "";
+				String request = "{\"activities\":[{\"date\":\"2012-04-24\",\"duration\":30},{\"date\":\"2012-04-23\",\"duration\":30},{\"date\":\"2012-04-22\",\"duration\":30},{\"date\":\"2012-04-21\",\"duration\":30},{\"date\":\"2012-04-20\",\"duration\":30},{\"date\":\"2012-04-19\",\"duration\":30},{\"date\":\"2012-04-18\",\"duration\":30}],\"bloodPressures\":[{\"date\":\"2012-04-24\",\"diastolic\":80,\"systolic\":120},{\"date\":\"2012-04-23\",\"diastolic\":80,\"systolic\":120},{\"date\":\"2012-04-22\",\"diastolic\":80,\"systolic\":120},{\"date\":\"2012-04-21\",\"diastolic\":80,\"systolic\":120},{\"date\":\"2012-04-20\",\"diastolic\":80,\"systolic\":120},{\"date\":\"2012-04-19\",\"diastolic\":80,\"systolic\":120},{\"date\":\"2012-04-18\",\"diastolic\":80,\"systolic\":120}],\"heartBeats\":[{\"count\":156,\"date\":\"2012-04-24\"},{\"count\":156,\"date\":\"2012-04-23\"},{\"count\":156,\"date\":\"2012-04-22\"},{\"count\":156,\"date\":\"2012-04-21\"},{\"count\":156,\"date\":\"2012-04-20\"},{\"count\":156,\"date\":\"2012-04-19\"},{\"count\":156,\"date\":\"2012-04-18\"}],\"sleep\":[{\"date\":\"2012-04-24\",\"minutesAsleep\":480},{\"date\":\"2012-04-23\",\"minutesAsleep\":480},{\"date\":\"2012-04-22\",\"minutesAsleep\":480},{\"date\":\"2012-04-21\",\"minutesAsleep\":480},{\"date\":\"2012-04-20\",\"minutesAsleep\":480},{\"date\":\"2012-04-19\",\"minutesAsleep\":480},{\"date\":\"2012-04-18\",\"minutesAsleep\":480}],\"userinfo\":{\"age\":45,\"cardio\":true,\"diabetes\":true,\"gender\":\"male\",\"height\":168,\"hypertension\":true,\"insomnia\":true,\"weight\":[]}}";
 				RequestParams params = new RequestParams("json", request);
 				client.post(res.getString(R.string.engine_url), params,
 						new AsyncHttpResponseHandler() {
@@ -103,9 +104,14 @@ public class MainActivity extends Activity {
 
 								String str = Test2.tryOBJ(MainActivity.this,
 										settings, res);
+								Test2.toObject();
 
-								Toast.makeText(getApplicationContext(), str,
-										Toast.LENGTH_LONG).show();
+								//Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();
+								
+								Intent intent = new Intent(MainActivity.this, PopupService.class); 
+								intent.putExtra("data", str);
+								startService(intent);
+								
 								Log.i("Output", str);
 							}
 						});
