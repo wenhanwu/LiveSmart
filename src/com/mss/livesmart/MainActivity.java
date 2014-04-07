@@ -49,9 +49,9 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick() {
 				// Starting a new Intent
-				Intent healthCenterScreen = new Intent(getApplicationContext(),
-						HealthCenterActivity.class);
-				startActivity(healthCenterScreen);
+				Intent healthHistoryScreen = new Intent(getApplicationContext(),
+						HealthHistoryActivity.class);
+				startActivity(healthHistoryScreen);
 			}
 		});
 
