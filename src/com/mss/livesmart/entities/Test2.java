@@ -1,24 +1,18 @@
 package com.mss.livesmart.entities;
 
-import android.app.Activity;
-import android.content.Context;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.content.*;
-
-import com.mss.livesmart.HealthDatabaseHandler;
-import com.mss.livesmart.R;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mss.livesmart.HealthDatabaseHandler;
+import com.mss.livesmart.R;
 
 public class Test2 {
 
@@ -27,6 +21,7 @@ public class Test2 {
 		toObject();
 	}
 
+	@SuppressLint("SimpleDateFormat")
 	public static void toJson() {
 		SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String curDate = sDateFormat.format(new java.util.Date());

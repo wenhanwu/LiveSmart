@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recommendations>
+	<recommendation_item>
+		<id>1</id>
+		<heading>Sleep More</heading>
+		<subtitle>Try going to bed earlier tonight</subtitle>
+		<description>You have been having an average of 5 hours sleep for 3
+			days. You normally sleep 7 hours a day.</description>
+		<date>April 4, 2014</date>
+		<icon>sleep_icon</icon>
+	</recommendation_item>
+	<recommendation_item>
+		<id>2</id>
+		<heading>Exercise Regularly</heading>
+		<subtitle>It might help lower your blood pressure</subtitle>
+		<description>Your blood pressure has been pretty high this week.
+		</description>
+		<date>April 13, 2014</date>
+		<icon>comment_icon</icon>
+		
+	</recommendation_item>
+	<recommendation_item>
+		<id>3</id>
+		<heading>Check Medication</heading>
+		<subtitle>Did you forget to take your medication?</subtitle>
+		<description>Your blood pressure has been pretty high this week.
+			Perhaps you forgot to take your pills?</description>
+		<date>April 15, 2014</date>
+		<icon>check_icon</icon>
+	</recommendation_item>
+
+</recommendations>

@@ -1,6 +1,5 @@
 package com.mss.livesmart.entities;
 
-import java.util.Date;
 
 public class Weight {
 	private double value;

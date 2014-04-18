@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+    <!-- ListRow Left side Thumbnail image -->
+
+    <LinearLayout
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip"
+        android:orientation="horizontal"
+        android:padding="3dip" >
+
+    </LinearLayout>
+
+    <!-- City-->
+
+    <TextView
+        android:id="@+id/rmdHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="75dip"
+        android:paddingBottom="10dip"
+        android:text="@string/recommendation_heading"
+        android:textColor="#040404"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <!-- Weather Information-->
+
+    <TextView
+        android:id="@+id/rmdSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/rmdHeading"
+        android:layout_below="@+id/rmdHeading"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="5dip"
+        android:text="@string/recommendation_subtitle"
+        android:textColor="#343434"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/list_image"
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/sleep_icon" />
+
+</RelativeLayout>
