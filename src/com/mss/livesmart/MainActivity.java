@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
 			public void onClick() {
 				// Starting a new intent
 				Intent inputHealthScreen = new Intent(getApplicationContext(),
-						InputHealthDataActivityNew.class);
+						InputHealthDataActivity.class);
 				startActivity(inputHealthScreen);
 			}
 		});

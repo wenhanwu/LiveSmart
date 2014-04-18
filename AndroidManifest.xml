@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="11"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="19" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -38,7 +38,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.mss.livesmart.InputHealthDataActivityNew"
+            android:name="com.mss.livesmart.InputHealthDataActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -46,7 +46,7 @@
             android:label="@string/title_personal_info" >
         </activity>
         <activity
-            android:name="com.mss.livesmart.data.AddUpdateRecActivity"
+            android:name="com.mss.livesmart.tempwork.AddUpdateRecActivity"
             android:label="@string/app_name" >
         </activity>
         <activity

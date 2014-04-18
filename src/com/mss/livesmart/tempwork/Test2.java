@@ -13,7 +13,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mss.livesmart.HealthDatabaseHandler;
 import com.mss.livesmart.R;
-import com.mss.livesmart.R.string;
+
+
 import com.mss.livesmart.entities.HealthData;
 import com.mss.livesmart.sampledata.SampleHealthData;
 
