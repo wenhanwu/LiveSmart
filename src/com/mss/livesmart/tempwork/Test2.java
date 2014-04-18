@@ -12,12 +12,10 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mss.livesmart.HealthDatabaseHandler;
-<<<<<<< HEAD:src/com/mss/livesmart/entities/Test2.java
 import com.mss.livesmart.R;
-=======
+import com.mss.livesmart.R.string;
 import com.mss.livesmart.entities.HealthData;
 import com.mss.livesmart.sampledata.SampleHealthData;
->>>>>>> 3763f05a3decc3c40101dc8c272c616e22419b6a:src/com/mss/livesmart/tempwork/Test2.java
 
 public class Test2 {
 
@@ -51,7 +49,8 @@ public class Test2 {
 		return rtn;
 	}
 
-	public static String tryOBJ(Context a, SharedPreferences settings, Resources res, String response) {
+	public static String tryOBJ(Context a, SharedPreferences settings,
+			Resources res, String response) {
 		HealthData hd = new HealthData(null, null, null, null, null);
 		HealthDatabaseHandler hdh = new HealthDatabaseHandler(a);
 		hd.setActivities(hdh.getActivities());
@@ -59,7 +58,6 @@ public class Test2 {
 		hd.setHeartBeats(hdh.getHeartBeats());
 		hd.setSleep(hdh.getSleep());
 
-		
 		settings = a.getSharedPreferences(
 				res.getString(R.string.personal_info), 0);
 
@@ -68,8 +66,10 @@ public class Test2 {
 		String rtn = "";
 		// rtn += (hd.getActivities().size());
 
-		rtn += ("\nuserinfo->weight: " + settings.getString(res.getString(R.string.weight_in_kilogram), "40"));
-		rtn += ("\nGender: " + settings.getString(res.getString(R.string.Gender), "female"));
+		rtn += ("\nuserinfo->weight: " + settings.getString(
+				res.getString(R.string.weight_in_kilogram), "40"));
+		rtn += ("\nGender: " + settings.getString(
+				res.getString(R.string.Gender), "female"));
 
 		if (hd.getActivities().size() > 0) {
 			rtn += ("\nDistance: " + hd.getActivities().get(0).getDistance());
@@ -88,8 +88,7 @@ public class Test2 {
 			rtn += ("\nEfficiency: " + hd.getSleep().get(0).getEfficiency());
 		}
 
-
-		return rtn+"\n"+response;
+		return rtn + "\n" + response;
 
 	}
 }

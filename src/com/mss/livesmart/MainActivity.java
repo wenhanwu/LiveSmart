@@ -5,7 +5,7 @@ import com.mss.livesmart.entities.*;
 import com.mss.livesmart.notification.PopupService;
 import com.mss.livesmart.sampledata.CurStatus;
 import com.mss.livesmart.sampledata.SampleHealthData;
-import com.mss.livesmart.sampledata.SampleJason;
+import com.mss.livesmart.sampledata.SampleJson;
 import com.mss.livesmart.sampledata.SampleRecommendationData;
 import com.mss.livesmart.tempwork.Test2;
 import com.mss.livesmart.utils.JsonConvertor;
@@ -100,7 +100,7 @@ public class MainActivity extends Activity {
 			public void onClick() {
 
 				AsyncHttpClient client = new AsyncHttpClient();
-				String request = SampleJason.rec1;
+				String request = SampleJson.rec1;
 				RequestParams params = new RequestParams("json", request);
 				client.post(res.getString(R.string.engine_url), params,
 						new AsyncHttpResponseHandler() {
