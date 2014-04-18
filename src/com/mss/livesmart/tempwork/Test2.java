@@ -12,12 +12,9 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mss.livesmart.HealthDatabaseHandler;
-<<<<<<< HEAD:src/com/mss/livesmart/entities/Test2.java
 import com.mss.livesmart.R;
-=======
 import com.mss.livesmart.entities.HealthData;
 import com.mss.livesmart.sampledata.SampleHealthData;
->>>>>>> 3763f05a3decc3c40101dc8c272c616e22419b6a:src/com/mss/livesmart/tempwork/Test2.java
 
 public class Test2 {
 
