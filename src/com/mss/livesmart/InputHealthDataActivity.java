@@ -2,13 +2,19 @@ package com.mss.livesmart;
 
 import java.util.Date;
 
+import com.mss.livesmart.adapter.TabsPagerAdapter;
 import com.mss.livesmart.entities.Activities;
 import com.mss.livesmart.entities.BloodPressures;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.app.ActionBar.Tab;
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -19,233 +25,72 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class InputHealthDataActivity extends Activity {
+public class InputHealthDataActivity extends FragmentActivity implements ActionBar.TabListener{
 
 
-	EditText t_distance, t_duration, t_steps;
-	Button b_save_activity, b_save_bloodPressure;
-	String s_duration, s_distance, s_steps;
-	String toast_msg;
-
-	SeekBar heartRate_bar, systolic_bar, diastolic_bar;
-	TextView heartRate_reading, systolic_reading, diastolic_reading;
-	int heartRate_result, systolic_result, diastolic_result;
-
+	private ViewPager viewPager;
+	private TabsPagerAdapter mAdapter;
+	private ActionBar actionBar;
+	// Tab titles
+	private String[] tabs = { "Day", "Night"};
 	
-	HealthDatabaseHandler dbHandler = new HealthDatabaseHandler(this);
-
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_input_health_data);
+		setContentView(R.layout.activity_input_health_data_tabbed);
 
-		setupScreenComponents();
-		checkInputs();
+		// Initilization
+		viewPager = (ViewPager) findViewById(R.id.pager);
+		actionBar = getActionBar();
+		mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 
-		b_save_activity.setOnClickListener(new View.OnClickListener() {
+		viewPager.setAdapter(mAdapter);
+		actionBar.setHomeButtonEnabled(false);
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);		
 
-			@Override
-			public void onClick(View v) {
-				// check if the values are entered
-				if (s_duration != null && s_distance != null && s_steps != null
-						&& s_duration.length() != 0 && s_distance.length() != 0
-						&& s_steps.length() != 0) {
+		// Adding Tabs
+		for (String tab_name : tabs) {
+			actionBar.addTab(actionBar.newTab().setText(tab_name)
+					.setTabListener(this));
+		}
 
-					Activities activities = new Activities(Integer
-							.valueOf(s_distance), Double.valueOf(s_duration),
-							new Date().toString(), new Date().toString(),
-							Integer.valueOf(s_steps));
-					dbHandler.addActivitiesEntry(activities);
-
-					toast_msg = "Data inserted successfully";
-					Toast.makeText(getApplicationContext(), toast_msg,
-							Toast.LENGTH_LONG).show();
-				}
-
-				clearTextFields();
-			}
-		});
-
-		heartRate_bar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-			int heartRate_value = 0;
+		/**
+		 * on swiping the viewpager make respective tab selected
+		 * */
+		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
 			@Override
-			public void onProgressChanged(SeekBar seekBar, int progress,
-					boolean fromUser) {
-				heartRate_value = progress;
-			
+			public void onPageSelected(int position) {
+				// on changing the page
+				// make respected tab selected
+				actionBar.setSelectedNavigationItem(position);
 			}
 
 			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {
-				// displays final reading on stop
-				heartRate_reading.setText(heartRate_value + " bpm");
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
 			}
 
 			@Override
-			public void onStartTrackingTouch(SeekBar seekBar) {
-				// displays initial heart rate reading
-				heartRate_reading.setText(heartRate_value + " bpm");
-			}
-
-		});
-
-		systolic_bar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-
-			int systolic_value = 0;
-
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {
-				systolic_reading.setText(systolic_value + " mm Hg");
-				systolic_result = systolic_value;
-
-			}
-
-			@Override
-			public void onStartTrackingTouch(SeekBar seekBar) {
-				systolic_reading.setText(systolic_value + " mm Hg");
-
-			}
-
-			@Override
-			public void onProgressChanged(SeekBar seekBar, int progress,
-					boolean fromUser) {
-				systolic_value = progress;
-
-			}
-		});
-
-		diastolic_bar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-
-			int diastolic_value = 0;
-
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {
-				diastolic_reading.setText(diastolic_value + " mm Hg");
-				diastolic_result = diastolic_value;
-
-			}
-
-			@Override
-			public void onStartTrackingTouch(SeekBar seekBar) {
-				diastolic_reading.setText(diastolic_value + " mm Hg");
-
-			}
-
-			@Override
-			public void onProgressChanged(SeekBar seekBar, int progress,
-					boolean fromUser) {
-				diastolic_value = progress;
-
-			}
-		});
-
-		b_save_bloodPressure.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				BloodPressures bloodPressures = new BloodPressures(
-						systolic_result, diastolic_result, new Date().toString(), new Date().toString());
-				dbHandler.addBloodPressureEntry(bloodPressures);
-
-				toast_msg = "BP Data inserted successfully";
-				Toast.makeText(getApplicationContext(), toast_msg,
-						Toast.LENGTH_LONG).show();
-				
+			public void onPageScrollStateChanged(int arg0) {
 			}
 		});
 	}
 
-	private void checkInputs() {
-
-		t_distance.addTextChangedListener(new TextWatcher() {
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before,
-					int count) {
-
-			}
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
-
-			}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-
-				s_distance = t_distance.getText().toString();
-			}
-		});
-
-		t_duration.addTextChangedListener(new TextWatcher() {
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before,
-					int count) {
-
-			}
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
-
-			}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-
-				s_duration = t_duration.getText().toString();
-			}
-		});
-
-		t_steps.addTextChangedListener(new TextWatcher() {
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before,
-					int count) {
-
-			}
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
-
-			}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-
-				s_steps = t_steps.getText().toString();
-			}
-		});
-
+	@Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft) {
 	}
 
-	private void setupScreenComponents() {
-//		t_distance = (EditText) findViewById(R.id.distance);
-//		t_duration = (EditText) findViewById(R.id.duration);
-//		t_steps = (EditText) findViewById(R.id.steps);
-
-		b_save_activity = (Button) findViewById(R.id.save_activity);
-
-		heartRate_bar = (SeekBar) findViewById(R.id.heart_rate_bar);
-		heartRate_reading = (TextView) findViewById(R.id.heart_rate_reading);
-
-		systolic_bar = (SeekBar) findViewById(R.id.systolic_bar);
-		diastolic_bar = (SeekBar) findViewById(R.id.diastolic_bar);
-		systolic_reading = (TextView) findViewById(R.id.systolic_reading);
-		diastolic_reading = (TextView) findViewById(R.id.diastolic_reading);
-		
-		b_save_bloodPressure = (Button) findViewById(R.id.save_blood_pressure);
+	@Override
+	public void onTabSelected(Tab tab, FragmentTransaction ft) {
+		// on tab selected
+		// show respected fragment view
+		viewPager.setCurrentItem(tab.getPosition());
 	}
 
-	private void clearTextFields() {
-
-		t_distance.getText().clear();
-		t_duration.getText().clear();
-		t_steps.getText().clear();
-
+	@Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 	}
+
 }
+

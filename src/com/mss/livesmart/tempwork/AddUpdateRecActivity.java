@@ -1,7 +1,8 @@
-package com.mss.livesmart.data;
+package com.mss.livesmart.tempwork;
 
 import com.mss.livesmart.HealthDatabaseHandler;
 import com.mss.livesmart.R;
+import com.mss.livesmart.data.ActivitiesActivity;
 import com.mss.livesmart.entities.Activities;
 
 import android.app.Activity;
