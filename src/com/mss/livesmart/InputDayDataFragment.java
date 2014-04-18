@@ -36,7 +36,7 @@ public class InputDayDataFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-		View view = inflater.inflate(R.layout.activity_input_health_data,
+		View view = inflater.inflate(R.layout.activity_input_day,
 				container, false);
 
 		setupScreenComponents(view);
