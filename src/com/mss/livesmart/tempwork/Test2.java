@@ -1,4 +1,4 @@
-package com.mss.livesmart.entities;
+package com.mss.livesmart.tempwork;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,7 +12,12 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mss.livesmart.HealthDatabaseHandler;
+<<<<<<< HEAD:src/com/mss/livesmart/entities/Test2.java
 import com.mss.livesmart.R;
+=======
+import com.mss.livesmart.entities.HealthData;
+import com.mss.livesmart.sampledata.SampleHealthData;
+>>>>>>> 3763f05a3decc3c40101dc8c272c616e22419b6a:src/com/mss/livesmart/tempwork/Test2.java
 
 public class Test2 {
 
@@ -23,55 +28,9 @@ public class Test2 {
 
 	@SuppressLint("SimpleDateFormat")
 	public static void toJson() {
-		SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String curDate = sDateFormat.format(new java.util.Date());
-
-		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
-		String curTime = timeFormat.format(new java.util.Date());
-
-		HealthData healthData = new HealthData();
-		UserInfo userInfo = new UserInfo();
-		userInfo.setAge(11);
-		userInfo.setGender("male");
-		userInfo.setCardio(true);
-		userInfo.setDiabetes(true);
-		userInfo.setHypertension(true);
-		userInfo.setInsomnia(true);
-
-		Weight w0 = new Weight();
-		w0.setDate(curDate);
-		w0.setValue(180);
-		Weight w1 = new Weight();
-		w1.setDate(curDate);
-		w1.setValue(172);
-
-		ArrayList<Weight> weightList = new ArrayList<Weight>();
-		weightList.add(w0);
-		weightList.add(w1);
-
-		userInfo.setWeight(weightList);
-		healthData.setUserinfo(userInfo);
-
-		ArrayList<Activities> activities = new ArrayList<Activities>();
-		Activities activity0 = new Activities();
-		activity0.setDistance(999);
-		activity0.setDuration(888);
-		activity0.setStartTime(curTime);
-		activity0.setSteps(1000);
-		activity0.setDate(curDate);
-
-		Activities activity1 = new Activities();
-		activity1.setDistance(777);
-		activity1.setDuration(666);
-		activity1.setStartTime(curTime);
-		activity1.setSteps(2000);
-		activity1.setDate(curDate);
-
-		activities.add(activity0);
-		activities.add(activity1);
-		healthData.setActivities(activities);
+		SampleHealthData.getHealthData();
 		Gson gson = new GsonBuilder().create();
-		String result = gson.toJson(healthData);
+		String result = gson.toJson(SampleHealthData.getHealthData());
 		System.out.println(result);
 	}
 
@@ -92,8 +51,8 @@ public class Test2 {
 		return rtn;
 	}
 
-	public static String tryOBJ(Context a, SharedPreferences settings, Resources res) {
-		HealthData hd = new HealthData();
+	public static String tryOBJ(Context a, SharedPreferences settings, Resources res, String response) {
+		HealthData hd = new HealthData(null, null, null, null, null);
 		HealthDatabaseHandler hdh = new HealthDatabaseHandler(a);
 		hd.setActivities(hdh.getActivities());
 		hd.setBloodPressures(hdh.getBloodPressures());
@@ -130,7 +89,7 @@ public class Test2 {
 		}
 
 
-		return rtn;
+		return rtn+"\n"+response;
 
 	}
 }

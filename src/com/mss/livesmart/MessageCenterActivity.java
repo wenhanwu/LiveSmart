@@ -13,6 +13,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.mss.livesmart.sampledata.SampleRecommendationData;
+import com.mss.livesmart.utils.DataProcessor;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,8 +45,13 @@ public class MessageCenterActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_message_center);
-
 		try {
+
+			//
+			// messageArray = new ArrayList<Response>();
+			// messageArray.add(new Response(4,
+			// DataProcessor.getAllRecom(SampleRecommendationData.getRecommendationDataBase()),
+			// "www.google.com"));
 
 			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
 					.newInstance();
@@ -51,8 +59,8 @@ public class MessageCenterActivity extends Activity {
 			Document doc = docBuilder.parse(getAssets().open(
 					"sample_recommendations.xml"));
 
-			if (doc != null){
-				Log.d("ok...","something in doc");
+			if (doc != null) {
+				Log.d("ok...", "something in doc");
 			}
 			recommendationCollection = new ArrayList<HashMap<String, String>>();
 
@@ -140,7 +148,7 @@ public class MessageCenterActivity extends Activity {
 			BinderData bindingData = new BinderData(this,
 					recommendationCollection);
 
-			//list = (ListView) findViewById(R.id.list);
+			// list = (ListView) findViewById(R.id.list);
 			list = (ListView) findViewById(R.id.listView1);
 
 			Log.i("BEFORE", "<<------------- Before SetAdapter-------------->>");
@@ -189,12 +197,11 @@ public class MessageCenterActivity extends Activity {
 		}
 
 		catch (IOException ex) {
-			String error= ex.getMessage();
-			Log.e("IO Error", "error");
+
+			Log.e("IO Error", ex.getMessage());
 		} catch (Exception ex) {
-			ex.printStackTrace();
-			String error2= ex.getMessage();
-			Log.e("other Error", "error2");
+
+			Log.e("other Error", ex.getMessage());
 		}
 
 	}
