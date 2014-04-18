@@ -1,4 +1,6 @@
-package com.mss.livesmart;
+package com.mss.livesmart.tempwork;
+
+import com.mss.livesmart.JsonTest;
 
 import junit.framework.TestCase;
 

@@ -6,13 +6,24 @@ import java.util.List;
 public class HealthData {
 	private UserInfo userinfo;
 	private ArrayList<Activities> activities;
-	private ArrayList<Sleep> sleep;
-	private ArrayList<HeartBeats> heartBeats;
 	private ArrayList<BloodPressures> bloodPressures;
+	private ArrayList<HeartBeats> heartBeats;
+	private ArrayList<Sleep> sleep;
+
+	public HealthData(UserInfo userinfo, ArrayList<Activities> activities,
+			ArrayList<BloodPressures> bloodPressures,
+			ArrayList<HeartBeats> heartBeats, ArrayList<Sleep> sleep) {
+		super();
+		this.userinfo = userinfo;
+		this.activities = activities;
+		this.bloodPressures = bloodPressures;
+		this.heartBeats = heartBeats;
+		this.sleep = sleep;
+	}
 
 	public ArrayList<Sleep> getSleep() {
 		return sleep;
-	}
+	} 
 
 	public void setSleep(ArrayList<Sleep> sleep) {
 		this.sleep = sleep;

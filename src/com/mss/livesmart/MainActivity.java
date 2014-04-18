@@ -3,6 +3,12 @@ package com.mss.livesmart;
 import com.mss.livesmart.data.ActivitiesActivity;
 import com.mss.livesmart.entities.*;
 import com.mss.livesmart.notification.PopupService;
+import com.mss.livesmart.sampledata.CurStatus;
+import com.mss.livesmart.sampledata.SampleHealthData;
+import com.mss.livesmart.sampledata.SampleJason;
+import com.mss.livesmart.sampledata.SampleRecommendationData;
+import com.mss.livesmart.tempwork.Test2;
+import com.mss.livesmart.utils.JsonConvertor;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -34,6 +40,11 @@ public class MainActivity extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		if (CurStatus.getTimeInMainPage() == 0) {
+			SampleHealthData.buildSampleData();
+			CurStatus.setTimeInMainPage(CurStatus.getTimeInMainPage()+1);
+			SampleRecommendationData.init();
+		}
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		res = getResources();
@@ -52,8 +63,8 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick() {
 				// Starting a new Intent
-				Intent healthHistoryScreen = new Intent(getApplicationContext(),
-						HealthHistoryActivity.class);
+				Intent healthHistoryScreen = new Intent(
+						getApplicationContext(), HealthHistoryActivity.class);
 				startActivity(healthHistoryScreen);
 			}
 		});
@@ -89,7 +100,7 @@ public class MainActivity extends Activity {
 			public void onClick() {
 
 				AsyncHttpClient client = new AsyncHttpClient();
-				String request = "{\"activities\":[{\"date\":\"2012-04-24\",\"duration\":30},{\"date\":\"2012-04-23\",\"duration\":30},{\"date\":\"2012-04-22\",\"duration\":30},{\"date\":\"2012-04-21\",\"duration\":30},{\"date\":\"2012-04-20\",\"duration\":30},{\"date\":\"2012-04-19\",\"duration\":30},{\"date\":\"2012-04-18\",\"duration\":30}],\"bloodPressures\":[{\"date\":\"2012-04-24\",\"diastolic\":80,\"systolic\":120},{\"date\":\"2012-04-23\",\"diastolic\":80,\"systolic\":120},{\"date\":\"2012-04-22\",\"diastolic\":80,\"systolic\":120},{\"date\":\"2012-04-21\",\"diastolic\":80,\"systolic\":120},{\"date\":\"2012-04-20\",\"diastolic\":80,\"systolic\":120},{\"date\":\"2012-04-19\",\"diastolic\":80,\"systolic\":120},{\"date\":\"2012-04-18\",\"diastolic\":80,\"systolic\":120}],\"heartBeats\":[{\"count\":156,\"date\":\"2012-04-24\"},{\"count\":156,\"date\":\"2012-04-23\"},{\"count\":156,\"date\":\"2012-04-22\"},{\"count\":156,\"date\":\"2012-04-21\"},{\"count\":156,\"date\":\"2012-04-20\"},{\"count\":156,\"date\":\"2012-04-19\"},{\"count\":156,\"date\":\"2012-04-18\"}],\"sleep\":[{\"date\":\"2012-04-24\",\"minutesAsleep\":480},{\"date\":\"2012-04-23\",\"minutesAsleep\":480},{\"date\":\"2012-04-22\",\"minutesAsleep\":480},{\"date\":\"2012-04-21\",\"minutesAsleep\":480},{\"date\":\"2012-04-20\",\"minutesAsleep\":480},{\"date\":\"2012-04-19\",\"minutesAsleep\":480},{\"date\":\"2012-04-18\",\"minutesAsleep\":480}],\"userinfo\":{\"age\":45,\"cardio\":true,\"diabetes\":true,\"gender\":\"male\",\"height\":168,\"hypertension\":true,\"insomnia\":true,\"weight\":[]}}";
+				String request = SampleJason.rec1;
 				RequestParams params = new RequestParams("json", request);
 				client.post(res.getString(R.string.engine_url), params,
 						new AsyncHttpResponseHandler() {
@@ -101,17 +112,23 @@ public class MainActivity extends Activity {
 								settings = getSharedPreferences(
 										res.getString(R.string.personal_info),
 										0);
-
-								String str = Test2.tryOBJ(MainActivity.this,
-										settings, res);
-								Test2.toObject();
-
-								//Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();
 								
-								Intent intent = new Intent(MainActivity.this, PopupService.class); 
+								RecommendationData recomData =JsonConvertor.JsonToRecommendationDataObj(response);
+								SampleRecommendationData.getRecommendationDataBase().add(recomData);
+								
+								String str = Test2.tryOBJ(MainActivity.this,
+										settings, res, response);
+								Test2.toObject();
+								Test2.toJson();
+
+								// Toast.makeText(getApplicationContext(), str,
+								// Toast.LENGTH_LONG).show();
+
+								Intent intent = new Intent(MainActivity.this,
+										PopupService.class);
 								intent.putExtra("data", str);
 								startService(intent);
-								
+
 								Log.i("Output", str);
 							}
 						});

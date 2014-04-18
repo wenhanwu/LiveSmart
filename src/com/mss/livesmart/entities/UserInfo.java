@@ -1,12 +1,13 @@
 package com.mss.livesmart.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserInfo {
 	private int age;
 	private String gender;
 	private double height;
-	private List<Weight> weight;
+	private List<Weight> weight=new ArrayList<Weight>() ;
 	private boolean hypertension;
 	private boolean diabetes;
 	private boolean insomnia;

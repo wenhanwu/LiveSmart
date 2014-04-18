@@ -3,6 +3,9 @@ package com.mss.livesmart;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.mss.livesmart.sampledata.SampleRecommendationData;
+import com.mss.livesmart.utils.DataProcessor;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -21,7 +24,7 @@ public class MessageCenterActivity extends Activity {
 		setContentView(R.layout.activity_message_center);
 
 		messageArray = new ArrayList<Response>();
-		messageArray.add(new Response(4, "test recommendation", "www.google.com"));
+		messageArray.add(new Response(4, DataProcessor.getAllRecom(SampleRecommendationData.getRecommendationDataBase()), "www.google.com"));
 
 		// show old msg, before new ones are added
 		refreshMessageList();
