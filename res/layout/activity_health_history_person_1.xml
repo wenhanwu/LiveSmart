@@ -7,21 +7,22 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical" >
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="40dp" >
 
         <TextView
-            android:id="@+id/healthHistoryTitle"
+            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:paddingBottom="10dp"
-            android:text="Your health trend"
+            android:gravity="center"
+            android:text="&lt;Apr 1 - 7>"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         
         <LinearLayout
             android:id="@+id/graphBp"
             android:layout_width="fill_parent"
-            android:layout_height="140dp"
+            android:layout_height="130dp"
             android:clickable="true"
             android:orientation="vertical"
             android:paddingBottom="5dp" >
@@ -31,7 +32,7 @@
         <LinearLayout
             android:id="@+id/graphActivity"
             android:layout_width="fill_parent"
-            android:layout_height="140dp"
+            android:layout_height="130dp"
             android:clickable="true"
             android:orientation="vertical"
             android:paddingBottom="5dp" >
@@ -41,7 +42,7 @@
         <LinearLayout
             android:id="@+id/graphSleep"
             android:layout_width="fill_parent"
-            android:layout_height="140dp"
+            android:layout_height="130dp"
             android:clickable="true"
             android:orientation="vertical"
             android:paddingBottom="5dp" >
@@ -61,42 +62,6 @@
                 android:text="Recommend" />
 
         </LinearLayout>
-        
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:visibility="invisible" >
-
-            <CheckBox
-                android:id="@+id/cbxSteps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Steps" />
-
-            <CheckBox
-                android:id="@+id/cbxSleep"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="Sleep minutes" />
-
-            <CheckBox
-                android:id="@+id/cbxHeartRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Heart rate" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/txtSteps1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:visibility="invisible" />
 
     </LinearLayout>
 

@@ -1,7 +1,11 @@
-package com.mss.livesmart;
+package com.mss.livesmart.adapter;
 
 import java.util.HashMap;
 import java.util.List;
+
+import com.mss.livesmart.R;
+import com.mss.livesmart.R.id;
+import com.mss.livesmart.R.layout;
 
 import android.app.Activity;
 import android.content.Context;

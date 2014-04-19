@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.mss.livesmart.GraphViewData;
 import com.mss.livesmart.entities.Activities;
 import com.mss.livesmart.entities.BloodPressures;
 import com.mss.livesmart.entities.HealthData;
@@ -81,7 +82,40 @@ public class SampleHealthData {
 		addSampleActivities(1111, CurStatus.getCurDate());
 		addSampleBloodPressures(80, 111, CurStatus.getCurDate());
 		addSampleHeartBeats(80, CurStatus.getCurDate());
-		addSampleSleep(500, CurStatus.getCurDate());
+
+
+		//add blood pressures
+		addSampleBloodPressures(66, 90, CurStatus.getCurDate());
+		addSampleBloodPressures(68, 92, CurStatus.getCurDate());
+		addSampleBloodPressures(68, 94, CurStatus.getCurDate());
+		addSampleBloodPressures(70, 92, CurStatus.getCurDate());
+		addSampleBloodPressures(68, 96, CurStatus.getCurDate());
+		addSampleBloodPressures(72, 94, CurStatus.getCurDate());
+		addSampleBloodPressures(70, 90, CurStatus.getCurDate());
+		addSampleBloodPressures(68, 88, CurStatus.getCurDate());
+		addSampleBloodPressures(70, 88, CurStatus.getCurDate());
+		addSampleBloodPressures(66, 96, CurStatus.getCurDate());
+		addSampleBloodPressures(70, 94, CurStatus.getCurDate());
+		addSampleBloodPressures(72, 96, CurStatus.getCurDate());
+		addSampleBloodPressures(74, 96, CurStatus.getCurDate());
+		addSampleBloodPressures(78, 98, CurStatus.getCurDate());
+		// add sleep data
+		addSampleSleep(480, CurStatus.getCurDate());
+		addSampleSleep(450, CurStatus.getCurDate());
+		addSampleSleep(510, CurStatus.getCurDate());
+		addSampleSleep(480, CurStatus.getCurDate());
+		addSampleSleep(360, CurStatus.getCurDate());
+		addSampleSleep(240, CurStatus.getCurDate());
+		addSampleSleep(210, CurStatus.getCurDate());
+
+		// add step data
+		addSampleActivities(1500, CurStatus.getCurDate());
+		addSampleActivities(1200, CurStatus.getCurDate());
+		addSampleActivities(1700, CurStatus.getCurDate());
+		addSampleActivities(1600, CurStatus.getCurDate());
+		addSampleActivities(1500, CurStatus.getCurDate());
+		addSampleActivities(1400, CurStatus.getCurDate());
+		addSampleActivities(1400, CurStatus.getCurDate());
 	}
 
 	public static String SampleHealthDataToJson() {

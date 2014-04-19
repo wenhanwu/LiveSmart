@@ -1,4 +1,4 @@
-package com.mss.livesmart;
+package com.mss.livesmart.sqldatabase;
 
 import java.sql.Date;
 import java.sql.Timestamp;
