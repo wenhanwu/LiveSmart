@@ -6,6 +6,14 @@ public class HeartBeats {
 	private String date;
 	private String time;
 
+	public HeartBeats(int count, String date, String time) {
+		super();
+		this.count = count;
+		this.date = date;
+		this.time = time;
+	}
+	public HeartBeats() {
+	}
 	public int getCount() {
 		return count;
 	}
