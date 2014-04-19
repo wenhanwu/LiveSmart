@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.mss.livesmart.entities.Activities;
 import com.mss.livesmart.entities.BloodPressures;
+import com.mss.livesmart.entities.HeartBeats;
 import com.mss.livesmart.sampledata.SampleHealthData;
 
 import android.os.Bundle;
@@ -19,7 +20,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 
 public class InputDayDataFragment extends Fragment {
 
-	Button b_save_activity, b_save_bloodPressure;
+	Button b_save_activity, b_save_bloodPressure, b_save_heartRate;
 	String toast_msg;
 
 	SeekBar distance_bar, duration_bar, step_bar, heartRate_bar, systolic_bar,
@@ -198,7 +199,7 @@ public class InputDayDataFragment extends Fragment {
 
 				//dbHandler.addActivitiesEntry(activities);
 				SampleHealthData.getHealthData().getActivities().add(activities);
-				toast_msg = "Data inserted successfully";
+				toast_msg = "Activity Data inserted successfully";
 				Toast.makeText(getActivity(), toast_msg, Toast.LENGTH_LONG)
 						.show();
 
@@ -216,6 +217,22 @@ public class InputDayDataFragment extends Fragment {
 				SampleHealthData.getHealthData().getBloodPressures().add(bloodPressures);
 
 				toast_msg = "BP Data inserted successfully";
+				Toast.makeText(getActivity(), toast_msg, Toast.LENGTH_LONG)
+						.show();
+
+			}
+		});
+		b_save_heartRate.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				HeartBeats heartBeats = new HeartBeats(
+						heartRate_result, new Date()
+								.toString(), new Date().toString());
+//				dbHandler.addBloodPressureEntry(bloodPressures);
+				SampleHealthData.getHealthData().getHeartBeats().add(heartBeats);
+
+				toast_msg = "HR Data inserted successfully";
 				Toast.makeText(getActivity(), toast_msg, Toast.LENGTH_LONG)
 						.show();
 
@@ -246,6 +263,8 @@ public class InputDayDataFragment extends Fragment {
 		b_save_activity = (Button) view.findViewById(R.id.save_activity);
 		b_save_bloodPressure = (Button) view
 				.findViewById(R.id.save_blood_pressure);
+		b_save_heartRate = (Button) view
+				.findViewById(R.id.save_heart_rate);
 	}
 
 }
