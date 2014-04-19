@@ -63,7 +63,7 @@ public class MainActivity extends Activity {
 			public void onClick() {
 				// Starting a new Intent
 				Intent healthHistoryScreen = new Intent(
-						getApplicationContext(), HealthHistoryActivity.class);
+						getApplicationContext(), HealthHistoryDemoActivity.class);
 				startActivity(healthHistoryScreen);
 			}
 		});

@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mss.livesmart.HealthHistoryActivity"
+            android:name="com.mss.livesmart.HealthHistoryDemoActivity"
             android:label="@string/app_name" >
         </activity>
        
