@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.mss.livesmart.data.ActivitiesActivity;
 import com.mss.livesmart.entities.RecommendationData;
 import com.mss.livesmart.notification.PopupService;
 import com.mss.livesmart.sampledata.CurStatus;
@@ -141,10 +140,8 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick() {
-				// Starting a new Intent
-				Intent recommendationScreen = new Intent(
-						getApplicationContext(), ActivitiesActivity.class);
-				startActivity(recommendationScreen);
+				// TODO: WENHAN to make it "populate sample data"
+
 			}
 		});
 

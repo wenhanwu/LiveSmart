@@ -2,12 +2,12 @@
 <recommendations>
 	<recommendation_item>
 		<id>1</id>
-		<heading>Sleep More</heading>
-		<subtitle>Try going to bed earlier tonight</subtitle>
-		<description>You have been having an average of 5 hours sleep for 3
-			days. You normally sleep 7 hours a day.</description>
-		<date>April 4, 2014</date>
-		<icon>sleep_icon</icon>
+		<heading>Check Medication</heading>
+		<subtitle>Did you forget to take your medication?</subtitle>
+		<description>Your blood pressure has been pretty high this week.
+			Perhaps you forgot to take your pills?</description>
+		<date>April 15, 2014</date>
+		<icon>check_icon</icon>
 	</recommendation_item>
 	<recommendation_item>
 		<id>2</id>
@@ -17,16 +17,48 @@
 		</description>
 		<date>April 13, 2014</date>
 		<icon>comment_icon</icon>
-		
 	</recommendation_item>
 	<recommendation_item>
 		<id>3</id>
-		<heading>Check Medication</heading>
-		<subtitle>Did you forget to take your medication?</subtitle>
-		<description>Your blood pressure has been pretty high this week.
-			Perhaps you forgot to take your pills?</description>
-		<date>April 15, 2014</date>
-		<icon>check_icon</icon>
+		<heading>Sleep More</heading>
+		<subtitle>Try going to bed earlier tonight</subtitle>
+		<description>You have been having an average of 5 hours sleep for 3
+			days. You normally sleep 7 hours a day.</description>
+		<date>April 4, 2014</date>
+		<icon>sleep_icon</icon>
 	</recommendation_item>
-
+		<recommendation_item>
+		<id>4</id>
+		<heading>Healthy Heart Rate</heading>
+		<subtitle>Good for you!</subtitle>
+		<description>Your blood pressure has been within the normal range for the past week.</description>
+		<date>April 17, 2014</date>
+		<icon>heart_icon</icon>
+	</recommendation_item>
+			<recommendation_item>
+		<id>5</id>
+		<heading>Drink Coffee</heading>
+		<subtitle>It is more than a relaxing habit.</subtitle>
+		<description>
+Drinking coffee after a meal may help you achieve your weight loss goal.</description>
+		<date>April 19, 2014</date>
+		<icon>coffee_icon</icon>
+	</recommendation_item>
+			<recommendation_item>
+		<id>6</id>
+		<heading>Stay Active</heading>
+		<subtitle>Looks like you are adapting a healthy lifestyle. Keep it up!</subtitle>
+		<description>Your have been active for more than 1 hours everyday for the past 7 days.</description>
+		<date>April 21, 2014</date>
+		<icon>bar_icon</icon>
+	</recommendation_item>
+	<recommendation_item>
+		<id>7</id>
+		<heading>Sleep More</heading>
+		<subtitle>Try going to bed earlier tonight</subtitle>
+		<description>You have been having an average of 4 hours sleep for 5
+			days. You normally sleep 7 hours a day.</description>
+		<date>April 23, 2014</date>
+		<icon>sleep_icon</icon>
+	</recommendation_item>
 </recommendations>
