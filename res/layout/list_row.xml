@@ -2,10 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/list_selector"
+    android:background="@drawable/rectangle"
+    
     android:orientation="horizontal"
     android:padding="5dip" >
     <!-- ListRow Left side Thumbnail image -->
+   <!--   android:background="@drawable/list_selector" -->
 
     <LinearLayout
         android:id="@+id/thumbnail"
