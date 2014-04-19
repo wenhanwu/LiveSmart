@@ -1,52 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:padding="10dp" >
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical" >
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="40dp" >
 
         <TextView
-            android:id="@+id/healthHistoryTitle"
+            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:text="Your health trend"
+            android:gravity="center"
+            android:text="&lt;Apr 1 - 7>"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <LinearLayout
+            android:id="@+id/graphBp"
+            android:layout_width="fill_parent"
+            android:layout_height="130dp"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:paddingBottom="5dp" >
 
+        </LinearLayout>
+        
         <LinearLayout
             android:id="@+id/graphActivity"
             android:layout_width="fill_parent"
-            android:layout_height="220dip"            
-            android:orientation="vertical" >
+            android:layout_height="130dp"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:paddingBottom="5dp" >
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/graphSleep"
+            android:layout_width="fill_parent"
+            android:layout_height="130dp"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:paddingBottom="5dp" >
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center" >
+            android:gravity="right" >
 
-            <CheckBox
-                android:id="@+id/cbxSteps"
+            <Button
+                android:id="@+id/btnRecommend"
+                style="@style/btnStyleSeagull"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Steps" />
-
-            <CheckBox
-                android:id="@+id/cbxSleep"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="Sleep minutes" />
-
-            <CheckBox
-                android:id="@+id/cbxHeartRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Heart rate" />
+                android:text="Recommend" />
 
         </LinearLayout>
 

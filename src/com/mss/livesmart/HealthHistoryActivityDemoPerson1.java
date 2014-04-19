@@ -7,140 +7,101 @@ import com.jjoe64.graphview.GraphView.LegendAlign;
 import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.GraphViewSeries.GraphViewSeriesStyle;
 import com.jjoe64.graphview.LineGraphView;
+import com.mss.livesmart.sampledata.SampleHealthData;
 
 import android.support.v4.app.Fragment; 
 import android.graphics.Color;
 import android.os.Bundle; 
 import android.widget.CheckBox;
 import android.widget.LinearLayout; 
+import android.widget.TextView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 
 public class HealthHistoryActivityDemoPerson1 extends Fragment{
     
     private CheckBox cbxSteps, cbxSleep, cbxHeartRate;
-    private LinearLayout graphDisplayArea;
-    LineGraphView graphView;
-    GraphViewSeries stepsSeries, sleepSeries, heartRateSeries;
+    private LinearLayout graphDisplayArea, graphSleep, graphBp;
+    LineGraphView graphView, graphViewBp;
+    BarGraphView graphViewSleep, graphViewStep;
+    GraphViewSeries stepsSeries, sleepSeries, heartRateSeries, bpSystolicSeries, bpDiastolicSeries;
+    private GraphViewData[] stepsData, sleepData, bpDiastolicData, bpSystolicData;
+    final int weekly = 7;
+    final int biweekly = 14;
+    View view;
     
-    public void onCreate(LayoutInflater inflater, ViewGroup container,
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-		View view = inflater.inflate(R.layout.activity_health_history_person_1,
+		view = inflater.inflate(R.layout.activity_health_history_person_1,
 				container, false);
- 
- 
+		stepsData = new GraphViewData[weekly];
+        
         graphDisplayArea = (LinearLayout) view.findViewById(R.id.graphActivity);
-        
-        cbxSteps = (CheckBox) view.findViewById(R.id.cbxSteps);
-        cbxSteps.setOnClickListener(new OnClickListener() {
-            
-            @Override
-            public void onClick(View v) {
-                //is cbxSteps checked?
-                if (((CheckBox) v).isChecked()) {
-                    graphView.addSeries(stepsSeries); 
-                    //graphView.setManualYAxisBounds(2000, 0);
-                } else {
-                    graphView.removeSeries(stepsSeries);
-                }       
-            }
-        });
-        
-        cbxSleep = (CheckBox) view.findViewById(R.id.cbxSleep);
-        cbxSleep.setOnClickListener(new OnClickListener() {
-            
-            @Override
-            public void onClick(View v) {
-                //is cbxSteps checked?
-                if (((CheckBox) v).isChecked()) {
-                    graphView.addSeries(sleepSeries);  
-                    //graphView.setManualYAxisBounds(800, 0);
-                } else {
-                    graphView.removeSeries(sleepSeries);
-                }       
-            }
-        });
-        
-        cbxHeartRate = (CheckBox) view.findViewById(R.id.cbxHeartRate);
-        cbxHeartRate.setOnClickListener(new OnClickListener() {
-            
-            @Override
-            public void onClick(View v) {
-                //is cbxSteps checked?
-                if (((CheckBox) v).isChecked()) {
-                    graphView.addSeries(heartRateSeries);  
-                    //graphView.setManualYAxisBounds(100, 0);
-                } else {
-                    graphView.removeSeries(heartRateSeries);
-                }       
-            }
-        });
-        
+        graphSleep = (LinearLayout) view.findViewById(R.id.graphSleep);
+        graphBp = (LinearLayout) view.findViewById(R.id.graphBp);       
+    
         // init example steps data
-        stepsSeries = new GraphViewSeries("Steps", null, new GraphViewData[] {
-              
-              new GraphViewData(1.0, 500.0d)
-              , new GraphViewData(2.0, 400.0d)
-              , new GraphViewData(3.0, 0.0d)
-              , new GraphViewData(4.0, 1800.0d)
-              , new GraphViewData(5.0, 1500.0d)
-              , new GraphViewData(6.0, 1800.0d)
-              , new GraphViewData(7.0, 1800.0d)
-              , new GraphViewData(8.0, 1400.0d)
-              , new GraphViewData(9.0, 1400.0d)
-              , new GraphViewData(10.0, 1300.0d)
-              , new GraphViewData(11.0, 1300.0d)
-              , new GraphViewData(12.0, 1200.0d)
-              , new GraphViewData(13.0, 1000.0d)
-              , new GraphViewData(14.0, 1000.0d)
-              , new GraphViewData(15.0, 800.0d)
-        });
+        stepsSeries = new GraphViewSeries("Steps", null, stepsData);
         GraphViewSeriesStyle sleepStyle = new GraphViewSeriesStyle(Color.GREEN, 2);
         // init example sleeps data
-        sleepSeries = new GraphViewSeries("Sleep minutes", sleepStyle, new GraphViewData[] {
-              
-              new GraphViewData(1, 300)
-              , new GraphViewData(2, 400)
-              , new GraphViewData(3, 240)
-              , new GraphViewData(4, 610)
-              , new GraphViewData(5, 600)
-              , new GraphViewData(6, 600)
-              , new GraphViewData(7, 200)
-              , new GraphViewData(8, 400)
-              , new GraphViewData(9, 300)
-              , new GraphViewData(10, 310)
-              , new GraphViewData(11, 320)
-              , new GraphViewData(12, 600)
-              , new GraphViewData(13, 400)
-              , new GraphViewData(14, 300)
-              , new GraphViewData(15, 320)
-        });
-        GraphViewSeriesStyle heartRateStyle = new GraphViewSeriesStyle(Color.RED, 2);
-        heartRateSeries = new GraphViewSeries("Heart rate", heartRateStyle, new GraphViewData[] {
-                
-                new GraphViewData(1, 66)
-                , new GraphViewData(2, 86)
-                , new GraphViewData(3, 70)
-                , new GraphViewData(4, 70)
-                , new GraphViewData(5, 60)
-                , new GraphViewData(6, 69)
-                , new GraphViewData(7, 80)
-                , new GraphViewData(8, 60)
-                , new GraphViewData(9, 70)
-                , new GraphViewData(10, 80)
-                , new GraphViewData(11, 90)
-                , new GraphViewData(12, 70)
-                , new GraphViewData(13, 64)
-                , new GraphViewData(14, 60)
-                , new GraphViewData(15, 66)
-          });
-        graphView = new LineGraphView(this.getActivity(), " ");
+        sleepData = new GraphViewData[weekly];
+        for(int i =0; i < weekly; i++) {
+            sleepData[i] = new GraphViewData(i, SampleHealthData.getHealthData().getSleep().get(i).getMinutesAsleep()/60);
+            stepsData[i] = new GraphViewData(i, SampleHealthData.getHealthData().getActivities().get(i).getDuration());
+        }
+       
+        sleepSeries = new GraphViewSeries("Sleep minutes", sleepStyle, sleepData);
+        bpSystolicData = new GraphViewData[biweekly];
+        bpDiastolicData = new GraphViewData[biweekly];
+        for(int i=0; i < biweekly; i++) {
+            bpSystolicData[i] = new GraphViewData(i, SampleHealthData.getHealthData().getBloodPressures().get(i).getSystolic());
+            bpDiastolicData[i] = new GraphViewData(i, SampleHealthData.getHealthData().getBloodPressures().get(i).getDiastolic());
+            
+        }
+        GraphViewSeriesStyle bpStyle1 = new GraphViewSeriesStyle(Color.RED, 2);
+        bpSystolicSeries = new GraphViewSeries("Systolic", bpStyle1, bpSystolicData);
         
         
-        GraphView anotherGraphView = new BarGraphView(this.getActivity(), "");       
+        
+        GraphViewSeriesStyle bpStyle2 = new GraphViewSeriesStyle(Color.YELLOW, 2);
+        bpDiastolicSeries = new GraphViewSeries("Diastolic", bpStyle2, bpDiastolicData);
+        
+        
+        graphView = new LineGraphView(getActivity(), " ");
+        
+        graphViewStep = new BarGraphView(getActivity(), "Steps");
+        graphViewStep.addSeries(stepsSeries);
+        graphViewStep.setHorizontalLabels(new String[] {"Apr 1"," ", " ", "Apr 7"});
+        graphViewStep.getGraphViewStyle().setNumHorizontalLabels(0);
+        graphViewStep.setManualYAxisBounds(2000, 0);
+        
+        graphViewSleep = new BarGraphView(getActivity(), "Sleep hours");
+        graphViewSleep.addSeries(sleepSeries);
+        graphViewSleep.setHorizontalLabels(new String[] {"Apr 1"," ", " ", "Apr 7"});
+        graphViewSleep.getGraphViewStyle().setNumHorizontalLabels(0);
+        graphViewSleep.setManualYAxisBounds(12, 0);
+       
+        graphViewBp = new LineGraphView(getActivity(), "Blood pressure");
+        graphViewBp.addSeries(bpSystolicSeries);
+        graphViewBp.addSeries(bpDiastolicSeries);
+        graphViewBp.setHorizontalLabels(new String[] {"Apr 1"," ", " ", "Apr 7"});
+        graphViewBp.getGraphViewStyle().setNumHorizontalLabels(0);
+        graphViewBp.setManualYAxisBounds(150, 0);
+        graphViewBp.setShowLegend(true);
+        graphViewBp.setDrawDataPoints(true);
+        graphViewBp.setLegendAlign(LegendAlign.TOP);
+        graphViewBp.setLegendWidth(165);
+        graphViewBp.setDataPointsRadius(4.0f);
+        
+        //graphViewBp.setDrawBackground(true);
+        
+        GraphView anotherGraphView = new BarGraphView(getActivity(), "");       
         anotherGraphView.addSeries(sleepSeries);
         graphView.addSeries(stepsSeries); // data
         
@@ -162,19 +123,13 @@ public class HealthHistoryActivityDemoPerson1 extends Fragment{
         graphView.setDrawDataPoints(true);
         graphView.setDataPointsRadius(8.0f);
         graphView.setDrawBackground(true);
-        graphView.setCustomLabelFormatter(new CustomLabelFormatter() {
-            
-            @Override
-            public String formatLabel(double value, boolean isValueX) {
-                // TODO Auto-generated method stub
-                if(isValueX) {
-                    return "" + (int)value;
-                }
-                return null;
-            }
-        });
         
-        graphDisplayArea.addView(graphView);        
+        
+        graphDisplayArea.addView(graphViewStep);      
+        graphSleep.addView(graphViewSleep);
+        graphBp.addView(graphViewBp);
+
+        return view;         
     }
      
 

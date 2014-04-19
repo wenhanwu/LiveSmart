@@ -60,13 +60,14 @@
 
                     <EditText
                         android:id="@+id/txtDOB"
+                        android:focusable="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1" />
 
                 </LinearLayout>
 
-                <LinearLayout
+                <LinearLayout                    
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -79,13 +80,13 @@
                         android:layout_weight="1"
                         android:text="Weight"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
-
+                                        
                     <EditText
                         android:id="@+id/txtWeight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:maxLength="3"
-                        android:inputType="number"
+                        android:inputType="number"                        
                         android:layout_weight="1" >
 
                         <requestFocus />
@@ -119,7 +120,7 @@
                         android:id="@+id/txtHeight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:maxLength="3"
+                        android:maxLength="3"                        
                         android:inputType="number"
                         android:layout_weight="1" />
 
@@ -181,18 +182,26 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal" >
+                    android:gravity="center_horizontal"
+                    android:paddingTop="10dp" >
 
                     <Button
                         android:id="@+id/buttonSave"
+                        style="@style/btnStyleSeagull"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginRight="10dip"
                         android:text="Save" />
 
                     <Button
                         android:id="@+id/buttonCancel"
+                        style="@style/btnStyleSeagull"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginRight="10dip"
+                        android:padding="10dp"
                         android:text="Cancel" />
 
                 </LinearLayout>

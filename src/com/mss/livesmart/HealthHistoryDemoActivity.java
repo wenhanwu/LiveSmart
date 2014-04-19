@@ -18,7 +18,7 @@ public class HealthHistoryDemoActivity extends FragmentActivity implements
 	private GraphyPagerAdapter mAdapter;
 	private ActionBar actionBar;
 	// Tab titles
-	private String[] tabs = { "Person 1", "Person 2", "Person 3" };
+	private String[] tabs = { "Apr 1 - 7", "Apr 8 - 14", "Apr 15 - 21" };
 
 	@SuppressLint("NewApi")
 	@Override
