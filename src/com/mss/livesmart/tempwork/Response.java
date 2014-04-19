@@ -1,4 +1,4 @@
-package com.mss.livesmart;
+package com.mss.livesmart.tempwork;
 
 import java.io.Serializable;
 

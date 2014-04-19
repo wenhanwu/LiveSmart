@@ -1,39 +1,24 @@
 package com.mss.livesmart;
 
-import java.util.Date;
-
-import com.mss.livesmart.adapter.TabsPagerAdapter;
-import com.mss.livesmart.entities.Activities;
-import com.mss.livesmart.entities.BloodPressures;
-
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
-import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class InputHealthDataActivity extends FragmentActivity implements ActionBar.TabListener{
+import com.mss.livesmart.adapter.TabsPagerAdapter;
 
+public class InputHealthDataActivity extends FragmentActivity implements
+		ActionBar.TabListener {
 
 	private ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
 	// Tab titles
-	private String[] tabs = { "Day", "Night"};
-	
+	private String[] tabs = { "Day", "Night" };
+
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +32,7 @@ public class InputHealthDataActivity extends FragmentActivity implements ActionB
 
 		viewPager.setAdapter(mAdapter);
 		actionBar.setHomeButtonEnabled(false);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);		
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		// Adding Tabs
 		for (String tab_name : tabs) {
@@ -93,4 +78,3 @@ public class InputHealthDataActivity extends FragmentActivity implements ActionB
 	}
 
 }
-

@@ -1,21 +1,10 @@
 package com.mss.livesmart;
 
-import com.mss.livesmart.data.ActivitiesActivity;
-import com.mss.livesmart.entities.*;
-import com.mss.livesmart.notification.PopupService;
-import com.mss.livesmart.sampledata.CurStatus;
-import com.mss.livesmart.sampledata.SampleHealthData;
-import com.mss.livesmart.sampledata.SampleJson;
-import com.mss.livesmart.sampledata.SampleRecommendationData;
-import com.mss.livesmart.tempwork.Test2;
-import com.mss.livesmart.utils.JsonConvertor;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -26,8 +15,18 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.mss.livesmart.*;
-import com.loopj.android.http.*;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.mss.livesmart.data.ActivitiesActivity;
+import com.mss.livesmart.entities.RecommendationData;
+import com.mss.livesmart.notification.PopupService;
+import com.mss.livesmart.sampledata.CurStatus;
+import com.mss.livesmart.sampledata.SampleHealthData;
+import com.mss.livesmart.sampledata.SampleJson;
+import com.mss.livesmart.sampledata.SampleRecommendationData;
+import com.mss.livesmart.tempwork.Test2;
+import com.mss.livesmart.utils.JsonConvertor;
 
 public class MainActivity extends Activity {
 	MyImageView healthCenter;
@@ -42,7 +41,7 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		if (CurStatus.getTimeInMainPage() == 0) {
 			SampleHealthData.buildSampleData();
-			CurStatus.setTimeInMainPage(CurStatus.getTimeInMainPage()+1);
+			CurStatus.setTimeInMainPage(CurStatus.getTimeInMainPage() + 1);
 			SampleRecommendationData.init();
 		}
 		super.onCreate(savedInstanceState);
@@ -112,10 +111,13 @@ public class MainActivity extends Activity {
 								settings = getSharedPreferences(
 										res.getString(R.string.personal_info),
 										0);
-								
-								RecommendationData recomData =JsonConvertor.JsonToRecommendationDataObj(response);
-								SampleRecommendationData.getRecommendationDataBase().add(recomData);
-								
+
+								RecommendationData recomData = JsonConvertor
+										.JsonToRecommendationDataObj(response);
+								SampleRecommendationData
+										.getRecommendationDataBase().add(
+												recomData);
+
 								String str = Test2.tryOBJ(MainActivity.this,
 										settings, res, response);
 								Test2.toObject();

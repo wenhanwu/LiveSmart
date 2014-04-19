@@ -13,9 +13,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.mss.livesmart.sampledata.SampleRecommendationData;
-import com.mss.livesmart.utils.DataProcessor;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,12 +43,6 @@ public class MessageCenterActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_message_center);
 		try {
-
-			//
-			// messageArray = new ArrayList<Response>();
-			// messageArray.add(new Response(4,
-			// DataProcessor.getAllRecom(SampleRecommendationData.getRecommendationDataBase()),
-			// "www.google.com"));
 
 			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
 					.newInstance();

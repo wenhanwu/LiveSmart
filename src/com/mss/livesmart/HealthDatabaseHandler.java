@@ -168,8 +168,8 @@ public class HealthDatabaseHandler extends SQLiteOpenHelper {
 
 	// TODO: modify it to take "count"
 	public ArrayList<Activities> getActivities() {
- 
-		try { 
+
+		try {
 			activitiesList.clear();
 
 			// Select All Query
