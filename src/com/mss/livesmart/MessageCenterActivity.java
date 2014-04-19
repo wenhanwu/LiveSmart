@@ -13,6 +13,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.mss.livesmart.adapter.BinderData;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

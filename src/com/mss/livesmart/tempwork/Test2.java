@@ -11,12 +11,12 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.mss.livesmart.HealthDatabaseHandler;
 import com.mss.livesmart.R;
 
 
 import com.mss.livesmart.entities.HealthData;
 import com.mss.livesmart.sampledata.SampleHealthData;
+import com.mss.livesmart.sqldatabase.HealthDatabaseHandler;
 
 public class Test2 {
 

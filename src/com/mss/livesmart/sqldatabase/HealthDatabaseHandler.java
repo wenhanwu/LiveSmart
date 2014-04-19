@@ -1,4 +1,4 @@
-package com.mss.livesmart;
+package com.mss.livesmart.sqldatabase;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -6,6 +6,7 @@ import com.mss.livesmart.entities.Activities;
 import com.mss.livesmart.entities.BloodPressures;
 import com.mss.livesmart.entities.HeartBeats;
 import com.mss.livesmart.sampledata.SampleHealthData;
+import com.mss.livesmart.sqldatabase.HealthDatabaseHandler;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
