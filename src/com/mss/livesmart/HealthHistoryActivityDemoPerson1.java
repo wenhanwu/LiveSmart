@@ -26,7 +26,7 @@ public class HealthHistoryActivityDemoPerson1 extends Fragment{
     
     private CheckBox cbxSteps, cbxSleep, cbxHeartRate;
     private LinearLayout graphDisplayArea, graphSleep, graphBp;
-    LineGraphView graphView, graphViewBp;
+    LineGraphView graphViewBp;
     BarGraphView graphViewSleep, graphViewStep;
     GraphViewSeries stepsSeries, sleepSeries, heartRateSeries, bpSystolicSeries, bpDiastolicSeries;
     private GraphViewData[] stepsData, sleepData, bpDiastolicData, bpSystolicData;
@@ -65,16 +65,11 @@ public class HealthHistoryActivityDemoPerson1 extends Fragment{
             
         }
         GraphViewSeriesStyle bpStyle1 = new GraphViewSeriesStyle(Color.RED, 2);
-        bpSystolicSeries = new GraphViewSeries("Systolic", bpStyle1, bpSystolicData);
-        
-        
+        bpSystolicSeries = new GraphViewSeries("Systolic", bpStyle1, bpSystolicData);        
         
         GraphViewSeriesStyle bpStyle2 = new GraphViewSeriesStyle(Color.YELLOW, 2);
         bpDiastolicSeries = new GraphViewSeries("Diastolic", bpStyle2, bpDiastolicData);
-        
-        
-        graphView = new LineGraphView(getActivity(), " ");
-        
+                
         graphViewStep = new BarGraphView(getActivity(), "Steps");
         graphViewStep.addSeries(stepsSeries);
         graphViewStep.setHorizontalLabels(new String[] {"Apr 1"," ", " ", "Apr 7"});
@@ -98,33 +93,7 @@ public class HealthHistoryActivityDemoPerson1 extends Fragment{
         graphViewBp.setLegendAlign(LegendAlign.TOP);
         graphViewBp.setLegendWidth(165);
         graphViewBp.setDataPointsRadius(4.0f);
-        
-        //graphViewBp.setDrawBackground(true);
-        
-        GraphView anotherGraphView = new BarGraphView(getActivity(), "");       
-        anotherGraphView.addSeries(sleepSeries);
-        graphView.addSeries(stepsSeries); // data
-        
-        
-        //graphView.setManualYAxisBounds(2000, 0);
-        //graphView.getGraphViewStyle().setNumVerticalLabels(3);
-        graphView.getGraphViewStyle().setNumHorizontalLabels(1);
-        
-        //graphView.getGraphViewStyle().setVerticalLabelsWidth(300);
-        graphView.setHorizontalLabels(new String[] {"Mar 1", "Mar 15"});
-        // set view port, start=2, size=40
-        //graphView.setViewPort(1.0d, 15.0d);
-        graphView.setScrollable(true);
-        // optional - activate scaling / zooming
-        graphView.setScalable(true);
-        graphView.setShowLegend(true);
-        graphView.setLegendAlign(LegendAlign.TOP);
-        graphView.setLegendWidth(250);
-        graphView.setDrawDataPoints(true);
-        graphView.setDataPointsRadius(8.0f);
-        graphView.setDrawBackground(true);
-        
-        
+               
         graphDisplayArea.addView(graphViewStep);      
         graphSleep.addView(graphViewSleep);
         graphBp.addView(graphViewBp);
