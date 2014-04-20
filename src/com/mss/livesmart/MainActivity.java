@@ -1,5 +1,17 @@
 package com.mss.livesmart;
 
+import java.io.UnsupportedEncodingException;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.json.JSONObject;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Notification;
@@ -8,6 +20,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.net.http.AndroidHttpClient;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -15,17 +28,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.mss.livesmart.entities.RecommendationData;
-import com.mss.livesmart.notification.PopupService;
+import com.mss.livesmart.entities.HealthData;
 import com.mss.livesmart.sampledata.CurStatus;
 import com.mss.livesmart.sampledata.SampleHealthData;
 import com.mss.livesmart.sampledata.SampleJson;
 import com.mss.livesmart.sampledata.SampleRecommendationData;
-import com.mss.livesmart.tempwork.Test2;
 import com.mss.livesmart.utils.JsonConvertor;
+import com.mss.livesmart.utils.Communicator;
+import com.mss.livesmart.utils.RecomHandler;
+import com.mss.livesmart.notification.PopupService;
 
 public class MainActivity extends Activity {
 	MyImageView healthCenter;
@@ -62,7 +77,8 @@ public class MainActivity extends Activity {
 			public void onClick() {
 				// Starting a new Intent
 				Intent healthHistoryScreen = new Intent(
-						getApplicationContext(), HealthHistoryDemoActivity.class);
+						getApplicationContext(),
+						HealthHistoryDemoActivity.class);
 				startActivity(healthHistoryScreen);
 			}
 		});
@@ -96,43 +112,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick() {
-
-				AsyncHttpClient client = new AsyncHttpClient();
-				String request = SampleJson.rec1;
-				RequestParams params = new RequestParams("json", request);
-				client.post(res.getString(R.string.engine_url), params,
-						new AsyncHttpResponseHandler() {
-							@Override
-							public void onSuccess(String response) {
-
-								SharedPreferences settings;
-								Resources res = getResources();
-								settings = getSharedPreferences(
-										res.getString(R.string.personal_info),
-										0);
-
-								RecommendationData recomData = JsonConvertor
-										.JsonToRecommendationDataObj(response);
-								SampleRecommendationData
-										.getRecommendationDataBase().add(
-												recomData);
-
-								String str = Test2.tryOBJ(MainActivity.this,
-										settings, res, response);
-								Test2.toObject();
-								Test2.toJson();
-
-								// Toast.makeText(getApplicationContext(), str,
-								// Toast.LENGTH_LONG).show();
-
-								Intent intent = new Intent(MainActivity.this,
-										PopupService.class);
-								intent.putExtra("data", str);
-								startService(intent);
-
-								Log.i("Output", str);
-							}
-						});
+				RecomHandler.getRecommendation((Activity)(MainActivity.this));
 			}
 		});
 		testDatabase = (MyImageView) findViewById(R.id.c_test_database);

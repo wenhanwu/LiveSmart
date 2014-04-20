@@ -8,10 +8,13 @@ import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.GraphViewSeries.GraphViewSeriesStyle;
 import com.jjoe64.graphview.LineGraphView;
 import com.mss.livesmart.sampledata.SampleHealthData;
+import com.mss.livesmart.utils.RecomHandler;
 
 import android.support.v4.app.Fragment; 
+import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle; 
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout; 
 import android.widget.TextView;
@@ -25,6 +28,7 @@ import android.view.View.OnTouchListener;
 public class HealthHistoryActivityDemoPerson1 extends Fragment{
     
     private CheckBox cbxSteps, cbxSleep, cbxHeartRate;
+	Button b_get_recommendation;
     private LinearLayout graphDisplayArea, graphSleep, graphBp;
     LineGraphView graphViewBp;
     BarGraphView graphViewSleep, graphViewStep;
@@ -37,14 +41,15 @@ public class HealthHistoryActivityDemoPerson1 extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-
+ 
 		view = inflater.inflate(R.layout.activity_health_history_person_1,
 				container, false);
 		stepsData = new GraphViewData[weekly];
         
         graphDisplayArea = (LinearLayout) view.findViewById(R.id.graphActivity);
         graphSleep = (LinearLayout) view.findViewById(R.id.graphSleep);
-        graphBp = (LinearLayout) view.findViewById(R.id.graphBp);       
+		graphBp = (LinearLayout) view.findViewById(R.id.graphBp);
+		b_get_recommendation = (Button) view.findViewById(R.id.btnRecommend);
     
         // init example steps data
         stepsSeries = new GraphViewSeries("Steps", null, stepsData);
@@ -97,7 +102,14 @@ public class HealthHistoryActivityDemoPerson1 extends Fragment{
         graphDisplayArea.addView(graphViewStep);      
         graphSleep.addView(graphViewSleep);
         graphBp.addView(graphViewBp);
+        b_get_recommendation.setOnClickListener(new View.OnClickListener() {
 
+			@Override
+			public void onClick(View v) {
+				RecomHandler.getRecommendation((HealthHistoryActivityDemoPerson1.this.getActivity()));
+			}
+ 
+		});
         return view;         
     }
      
