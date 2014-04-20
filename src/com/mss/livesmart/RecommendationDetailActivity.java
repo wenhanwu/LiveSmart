@@ -33,8 +33,8 @@ public class RecommendationDetailActivity extends Activity {
 			// handle for the UI elements
 			iconImage = (ImageButton) findViewById(R.id.imageButtonAlpha);
 			// Text fields
-			heading_view = (TextView) findViewById(R.id.rmdHeading);
-			subtitle_view = (TextView) findViewById(R.id.rmdSubtitle);
+			heading_view = (TextView) findViewById(R.id.heading_view);
+			subtitle_view = (TextView) findViewById(R.id.subtitle_view);
 			description_view = (TextView) findViewById(R.id.description_view);
 			date_view = (TextView) findViewById(R.id.date_view);
 
@@ -48,7 +48,7 @@ public class RecommendationDetailActivity extends Activity {
 			this.date = i.getStringExtra("date");
 			this.iconfile = i.getStringExtra("icon");
 
-			String uri = "drawable/" + "d" + iconfile;
+			String uri = "drawable/" + iconfile;
 			int imageBtnResource = getResources().getIdentifier(uri, null,
 					getPackageName());
 			Drawable dimgbutton = getResources().getDrawable(imageBtnResource);

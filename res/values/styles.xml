@@ -29,5 +29,9 @@
         <item name="android:background">@drawable/custom_btn_seagull</item>
         <item name="android:padding">10dip</item>
     </style>
+    <style name="StyleHeading">
+        <item name="android:textColor">#EE8D09</item>
+    </style>
+   
 
 </resources>

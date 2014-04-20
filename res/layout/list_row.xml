@@ -31,8 +31,8 @@
         android:layout_marginLeft="75dip"
         android:paddingBottom="10dip"
         android:text="@string/recommendation_heading"
-        android:textColor="#040404"
-        android:textSize="25sp"
+        android:textColor="#0092D7"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:typeface="sans" />
 
@@ -45,10 +45,10 @@
         android:layout_alignLeft="@+id/rmdHeading"
         android:layout_below="@+id/rmdHeading"
         android:layout_centerHorizontal="true"
-        android:paddingTop="5dip"
+        android:paddingTop="8dip"
         android:text="@string/recommendation_subtitle"
-        android:textColor="#343434"
-        android:textSize="15sp" />
+        android:textColor="#159594"
+        android:textSize="14sp" />
 
     <ImageView
         android:id="@+id/list_image"

@@ -178,7 +178,7 @@ public class MessageCenterActivity extends Activity {
 							recommendationCollection.get(position).get(
 									KEY_DESCRIPTION));
 					i.putExtra("date", recommendationCollection.get(position)
-							.get(KEY_DESCRIPTION));
+							.get(KEY_DATE));
 					i.putExtra("icon", recommendationCollection.get(position)
 							.get(KEY_ICON));
 
