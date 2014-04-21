@@ -12,9 +12,9 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <application
         android:allowBackup="true"
-        android:icon="@drawable/live_smart_logo"
+        android:icon="@drawable/ic_final_icon"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" android:logo="@drawable/live_smart_logo">
         <activity
             android:name="com.mss.livesmart.MainActivity"
             android:label="@string/app_name" >
