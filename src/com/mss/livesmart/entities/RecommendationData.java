@@ -22,12 +22,14 @@ public class RecommendationData {
 	}
 
 	public String recomToString() {
-		String recomStr = "{";
+		String recomStr = "";
 		for (int i = 0; i < recommendations.size(); i++) {
-			recomStr += "[No. " + recommendations.get(i).getId() + "] ";
-			recomStr += "[" + recommendations.get(i).getRecommendation() + "] ";
-			recomStr += "[" + recommendations.get(i).getUrl() + "] ";
-			recomStr += "[" + recommendations.get(i).getSeverity() + "] \n";
+			recomStr += "[Recommendation No. " + recommendations.get(i).getId() + "]\n";
+			recomStr += recommendations.get(i).getRecommendation();
+			recomStr += "\n\n[Reference Url]";
+			recomStr += "\n[" + recommendations.get(i).getUrl() + "] ";
+			recomStr += "\n\n[Severity Level]:";
+			recomStr += "[" + recommendations.get(i).getSeverity() + "]";
 		}
 		return recomStr;
 	}

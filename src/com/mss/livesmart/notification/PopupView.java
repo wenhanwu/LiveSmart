@@ -1,6 +1,7 @@
 package com.mss.livesmart.notification;
 
 import com.mss.livesmart.MainActivity;
+import com.mss.livesmart.MessageCenterActivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,7 +30,7 @@ public class PopupView extends LinearLayout {
 		this.addView(tv);
 
 		btn_dismiss = new Button(context);
-		btn_dismiss.setText("Dismiss");
+		btn_dismiss.setText("Ignore");
 		btn_dismiss.setOnClickListener(new OnClickListener(){
 	        @Override 
 	        public void onClick(View v)  {
@@ -39,12 +40,12 @@ public class PopupView extends LinearLayout {
 		this.addView(btn_dismiss);
 		
 		btn_open = new Button(context);
-		btn_open.setText("Open");
+		btn_open.setText("Check");
 		btn_open.setOnClickListener(new OnClickListener(){
 	        @Override 
 	        public void onClick(View v)  {
 	        	removePopup();
-	        	Intent intent = new Intent(v.getContext(), MainActivity.class);
+	        	Intent intent = new Intent(v.getContext(), MessageCenterActivity.class);
 	        	intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 	        	v.getContext().startActivity(intent);
 	        }
