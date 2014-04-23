@@ -36,7 +36,7 @@ public class PopupView extends LinearLayout {
 		tv.setBackgroundResource(R.drawable.text_view_border);  
 		
 		btn_ignore = new Button(context);
-		btn_ignore.setText("Ignore");
+		btn_ignore.setText("OK");
 		btn_ignore.setOnClickListener(new OnClickListener(){
 	        @Override 
 	        public void onClick(View v)  {
@@ -46,7 +46,7 @@ public class PopupView extends LinearLayout {
 		this.addView(btn_ignore);
 		
 		btn_check = new Button(context);
-		btn_check.setText("Check");
+		btn_check.setText("Check Msg Center");
 		btn_check.setOnClickListener(new OnClickListener(){
 	        @Override 
 	        public void onClick(View v)  {
