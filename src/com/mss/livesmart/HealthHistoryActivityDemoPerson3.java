@@ -92,7 +92,7 @@ public class HealthHistoryActivityDemoPerson3 extends Fragment {
 		bpDiastolicSeries = new GraphViewSeries("Diastolic", bpStyle2,
 				bpDiastolicData);
 
-		graphViewStep = new BarGraphView(getActivity(), "Steps");
+		graphViewStep = new BarGraphView(getActivity(), "Duration");
 		graphViewStep.addSeries(stepsSeries);
 		graphViewStep.setHorizontalLabels(new String[] { "Apr 15", " ", " ",
 				"Apr 21" });
