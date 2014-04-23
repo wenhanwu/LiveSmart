@@ -7,7 +7,10 @@ import com.jjoe64.graphview.GraphView.LegendAlign;
 import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.GraphViewSeries.GraphViewSeriesStyle;
 import com.jjoe64.graphview.LineGraphView;
+import com.mss.livesmart.entities.HealthData;
 import com.mss.livesmart.sampledata.SampleHealthData;
+import com.mss.livesmart.sampledata.SampleJson;
+import com.mss.livesmart.utils.JsonConvertor;
 import com.mss.livesmart.utils.RecomHandler;
 
 import android.support.v4.app.Fragment;
@@ -35,7 +38,7 @@ public class HealthHistoryActivityDemoPerson2 extends Fragment {
 	private GraphViewData[] stepsData, sleepData, bpDiastolicData,
 			bpSystolicData;
 	final int weekly = 7;
-	final int biweekly = 14;
+	final int biweekly = 7;
 	View view;
 
 	@Override
@@ -60,10 +63,10 @@ public class HealthHistoryActivityDemoPerson2 extends Fragment {
 		sleepData = new GraphViewData[weekly];
 		for (int i = 0; i < weekly; i++) {
 			sleepData[i] = new GraphViewData(i, SampleHealthData
-					.getHealthData().getSleep().get(i + weekly)
+					.getHealthData2().getSleep().get(i + weekly)
 					.getMinutesAsleep() / 60);
 			stepsData[i] = new GraphViewData(i, SampleHealthData
-					.getHealthData().getActivities().get(i + weekly)
+					.getHealthData2().getActivities().get(i + weekly)
 					.getDuration());
 		}
 
@@ -73,10 +76,10 @@ public class HealthHistoryActivityDemoPerson2 extends Fragment {
 		bpDiastolicData = new GraphViewData[biweekly];
 		for (int i = 0; i < biweekly; i++) {
 			bpSystolicData[i] = new GraphViewData(i, SampleHealthData
-					.getHealthData().getBloodPressures().get(i + biweekly)
+					.getHealthData2().getBloodPressures().get(i + biweekly)
 					.getSystolic());
 			bpDiastolicData[i] = new GraphViewData(i, SampleHealthData
-					.getHealthData().getBloodPressures().get(i + biweekly)
+					.getHealthData2().getBloodPressures().get(i + biweekly)
 					.getDiastolic());
 
 		}
@@ -94,7 +97,7 @@ public class HealthHistoryActivityDemoPerson2 extends Fragment {
 		graphViewStep.setHorizontalLabels(new String[] { "Apr 8", " ", " ",
 				"Apr 14" });
 		graphViewStep.getGraphViewStyle().setNumHorizontalLabels(0);
-		graphViewStep.setManualYAxisBounds(2000, 0);
+		graphViewStep.setManualYAxisBounds(200, 0);
 
 		graphViewSleep = new BarGraphView(getActivity(), "Sleep hours");
 		graphViewSleep.addSeries(sleepSeries);
@@ -109,7 +112,7 @@ public class HealthHistoryActivityDemoPerson2 extends Fragment {
 		graphViewBp.setHorizontalLabels(new String[] { "Apr 8", " ", " ",
 				"Apr 14" });
 		graphViewBp.getGraphViewStyle().setNumHorizontalLabels(0);
-		graphViewBp.setManualYAxisBounds(150, 0);
+		graphViewBp.setManualYAxisBounds(200, 0);
 		graphViewBp.setShowLegend(true);
 		graphViewBp.setDrawDataPoints(true);
 		graphViewBp.setLegendAlign(LegendAlign.TOP);
@@ -123,9 +126,11 @@ public class HealthHistoryActivityDemoPerson2 extends Fragment {
 
 			@Override
 			public void onClick(View v) {
+				HealthData hd = JsonConvertor
+						.SampleJsonToHealthDataObj(SampleJson.getRec2());
 				RecomHandler
 						.getRecommendation((HealthHistoryActivityDemoPerson2.this
-								.getActivity()));
+								.getActivity()), hd);
 			}
 
 		});

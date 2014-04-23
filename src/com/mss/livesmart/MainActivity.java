@@ -112,7 +112,10 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick() {
-				RecomHandler.getRecommendation((Activity)(MainActivity.this));
+				HealthData hd = JsonConvertor
+						.SampleJsonToHealthDataObj(SampleJson.getRec());
+				RecomHandler.getRecommendation((Activity) (MainActivity.this),
+						hd);
 			}
 		});
 		testDatabase = (MyImageView) findViewById(R.id.c_test_database);

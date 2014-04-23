@@ -12,9 +12,7 @@ import com.mss.livesmart.sampledata.CurStatus;
 import com.mss.livesmart.sampledata.SampleJson;
 
 public class RecomHandler {
-	public static void getRecommendation(Activity act) {
-		HealthData hd = JsonConvertor
-				.SampleJsonToHealthDataObj(SampleJson.rec1);
+	public static void getRecommendation(Activity act, HealthData hd) {
 
 		Gson g = new Gson();
 		String message = g.toJson(hd);

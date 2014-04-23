@@ -86,6 +86,9 @@ public class Communicator extends AsyncTask<String, Integer, String> {
 
 			response = recomData.recomToString();
 
+			if (response.equals("")) {
+				response = "Congratulations!\nAccording to current data, your health condition is good!";
+			}
 			CurStatus.setRecomMutex(1);
 			CurStatus.setRecom(response);
 		}

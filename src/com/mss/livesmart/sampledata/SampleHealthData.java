@@ -12,13 +12,41 @@ import com.mss.livesmart.entities.Activities;
 import com.mss.livesmart.entities.BloodPressures;
 import com.mss.livesmart.entities.HealthData;
 import com.mss.livesmart.entities.HeartBeats;
-import com.mss.livesmart.entities.Sleep; 
+import com.mss.livesmart.entities.Sleep;
 import com.mss.livesmart.entities.Weight;
+import com.mss.livesmart.utils.JsonConvertor;
 
 public class SampleHealthData {
 
-	//This contains all the health data in a list structure.
+	// This contains all the health data in a list structure.
 	private static HealthData healthData;
+	private static HealthData healthData1;
+	private static HealthData healthData2;
+	private static HealthData healthData3;
+
+	public static HealthData getHealthData1() {
+		return healthData1;
+	}
+
+	public static void setHealthData1(HealthData healthData1) {
+		SampleHealthData.healthData1 = healthData1;
+	}
+
+	public static HealthData getHealthData2() {
+		return healthData2;
+	}
+
+	public static void setHealthData2(HealthData healthData2) {
+		SampleHealthData.healthData2 = healthData2;
+	}
+
+	public static HealthData getHealthData3() {
+		return healthData3;
+	}
+
+	public static void setHealthData3(HealthData healthData3) {
+		SampleHealthData.healthData3 = healthData3;
+	}
 
 	public static HealthData getHealthData() {
 		return healthData;
@@ -40,6 +68,12 @@ public class SampleHealthData {
 		healthData = new HealthData(CurUserInfo.getUserInfo(), activities,
 				bpressures, hBeats, sleeps);
 
+		healthData1 = JsonConvertor.SampleJsonToHealthDataObj(SampleJson
+				.getRec1());
+		healthData2 = JsonConvertor.SampleJsonToHealthDataObj(SampleJson
+				.getRec2());
+		healthData3 = JsonConvertor.SampleJsonToHealthDataObj(SampleJson
+				.getRec3());
 	}
 
 	public static void buildSampleData() {
@@ -79,7 +113,7 @@ public class SampleHealthData {
 	// This function is to add sample data to the health data lists
 	public static void addSampleHealthData() {
 
-		//add blood pressures week 1
+		// add blood pressures week 1
 		addSampleBloodPressures(66, 90, CurStatus.getCurDate());
 		addSampleBloodPressures(68, 92, CurStatus.getCurDate());
 		addSampleBloodPressures(68, 94, CurStatus.getCurDate());
@@ -94,36 +128,36 @@ public class SampleHealthData {
 		addSampleBloodPressures(72, 96, CurStatus.getCurDate());
 		addSampleBloodPressures(74, 96, CurStatus.getCurDate());
 		addSampleBloodPressures(78, 98, CurStatus.getCurDate());
-	    //add blood pressures week 2
-        addSampleBloodPressures(66, 80, CurStatus.getCurDate());
-        addSampleBloodPressures(68, 92, CurStatus.getCurDate());
-        addSampleBloodPressures(68, 94, CurStatus.getCurDate());
-        addSampleBloodPressures(70, 92, CurStatus.getCurDate());
-        addSampleBloodPressures(68, 96, CurStatus.getCurDate());
-        addSampleBloodPressures(72, 94, CurStatus.getCurDate());
-        addSampleBloodPressures(70, 90, CurStatus.getCurDate());
-        addSampleBloodPressures(68, 88, CurStatus.getCurDate());
-        addSampleBloodPressures(70, 88, CurStatus.getCurDate());
-        addSampleBloodPressures(66, 96, CurStatus.getCurDate());
-        addSampleBloodPressures(70, 94, CurStatus.getCurDate());
-        addSampleBloodPressures(72, 96, CurStatus.getCurDate());
-        addSampleBloodPressures(74, 96, CurStatus.getCurDate());
-        addSampleBloodPressures(78, 90, CurStatus.getCurDate());
-        //add blood pressures week 3
-        addSampleBloodPressures(66, 90, CurStatus.getCurDate());
-        addSampleBloodPressures(68, 92, CurStatus.getCurDate());
-        addSampleBloodPressures(68, 94, CurStatus.getCurDate());
-        addSampleBloodPressures(70, 92, CurStatus.getCurDate());
-        addSampleBloodPressures(68, 96, CurStatus.getCurDate());
-        addSampleBloodPressures(72, 94, CurStatus.getCurDate());
-        addSampleBloodPressures(70, 90, CurStatus.getCurDate());
-        addSampleBloodPressures(68, 88, CurStatus.getCurDate());
-        addSampleBloodPressures(70, 88, CurStatus.getCurDate());
-        addSampleBloodPressures(66, 96, CurStatus.getCurDate());
-        addSampleBloodPressures(70, 94, CurStatus.getCurDate());
-        addSampleBloodPressures(72, 96, CurStatus.getCurDate());
-        addSampleBloodPressures(74, 96, CurStatus.getCurDate());
-        addSampleBloodPressures(78, 100, CurStatus.getCurDate());
+		// add blood pressures week 2
+		addSampleBloodPressures(66, 80, CurStatus.getCurDate());
+		addSampleBloodPressures(68, 92, CurStatus.getCurDate());
+		addSampleBloodPressures(68, 94, CurStatus.getCurDate());
+		addSampleBloodPressures(70, 92, CurStatus.getCurDate());
+		addSampleBloodPressures(68, 96, CurStatus.getCurDate());
+		addSampleBloodPressures(72, 94, CurStatus.getCurDate());
+		addSampleBloodPressures(70, 90, CurStatus.getCurDate());
+		addSampleBloodPressures(68, 88, CurStatus.getCurDate());
+		addSampleBloodPressures(70, 88, CurStatus.getCurDate());
+		addSampleBloodPressures(66, 96, CurStatus.getCurDate());
+		addSampleBloodPressures(70, 94, CurStatus.getCurDate());
+		addSampleBloodPressures(72, 96, CurStatus.getCurDate());
+		addSampleBloodPressures(74, 96, CurStatus.getCurDate());
+		addSampleBloodPressures(78, 90, CurStatus.getCurDate());
+		// add blood pressures week 3
+		addSampleBloodPressures(66, 90, CurStatus.getCurDate());
+		addSampleBloodPressures(68, 92, CurStatus.getCurDate());
+		addSampleBloodPressures(68, 94, CurStatus.getCurDate());
+		addSampleBloodPressures(70, 92, CurStatus.getCurDate());
+		addSampleBloodPressures(68, 96, CurStatus.getCurDate());
+		addSampleBloodPressures(72, 94, CurStatus.getCurDate());
+		addSampleBloodPressures(70, 90, CurStatus.getCurDate());
+		addSampleBloodPressures(68, 88, CurStatus.getCurDate());
+		addSampleBloodPressures(70, 88, CurStatus.getCurDate());
+		addSampleBloodPressures(66, 96, CurStatus.getCurDate());
+		addSampleBloodPressures(70, 94, CurStatus.getCurDate());
+		addSampleBloodPressures(72, 96, CurStatus.getCurDate());
+		addSampleBloodPressures(74, 96, CurStatus.getCurDate());
+		addSampleBloodPressures(78, 100, CurStatus.getCurDate());
 		// add sleep data week 1
 		addSampleSleep(480, CurStatus.getCurDate());
 		addSampleSleep(450, CurStatus.getCurDate());
@@ -132,22 +166,22 @@ public class SampleHealthData {
 		addSampleSleep(360, CurStatus.getCurDate());
 		addSampleSleep(240, CurStatus.getCurDate());
 		addSampleSleep(210, CurStatus.getCurDate());
-	    // add sleep data week 2
-        addSampleSleep(450, CurStatus.getCurDate());
-        addSampleSleep(450, CurStatus.getCurDate());
-        addSampleSleep(510, CurStatus.getCurDate());
-        addSampleSleep(480, CurStatus.getCurDate());
-        addSampleSleep(360, CurStatus.getCurDate());
-        addSampleSleep(240, CurStatus.getCurDate());
-        addSampleSleep(210, CurStatus.getCurDate());
-        // add sleep data week 3
-        addSampleSleep(400, CurStatus.getCurDate());
-        addSampleSleep(450, CurStatus.getCurDate());
-        addSampleSleep(510, CurStatus.getCurDate());
-        addSampleSleep(480, CurStatus.getCurDate());
-        addSampleSleep(360, CurStatus.getCurDate());
-        addSampleSleep(240, CurStatus.getCurDate());
-        addSampleSleep(210, CurStatus.getCurDate());
+		// add sleep data week 2
+		addSampleSleep(450, CurStatus.getCurDate());
+		addSampleSleep(450, CurStatus.getCurDate());
+		addSampleSleep(510, CurStatus.getCurDate());
+		addSampleSleep(480, CurStatus.getCurDate());
+		addSampleSleep(360, CurStatus.getCurDate());
+		addSampleSleep(240, CurStatus.getCurDate());
+		addSampleSleep(210, CurStatus.getCurDate());
+		// add sleep data week 3
+		addSampleSleep(400, CurStatus.getCurDate());
+		addSampleSleep(450, CurStatus.getCurDate());
+		addSampleSleep(510, CurStatus.getCurDate());
+		addSampleSleep(480, CurStatus.getCurDate());
+		addSampleSleep(360, CurStatus.getCurDate());
+		addSampleSleep(240, CurStatus.getCurDate());
+		addSampleSleep(210, CurStatus.getCurDate());
 
 		// add step data week 1
 		addSampleActivities(1500, CurStatus.getCurDate());
@@ -158,21 +192,21 @@ public class SampleHealthData {
 		addSampleActivities(1400, CurStatus.getCurDate());
 		addSampleActivities(1400, CurStatus.getCurDate());
 		// add step data week 2
-        addSampleActivities(1200, CurStatus.getCurDate());
-        addSampleActivities(1200, CurStatus.getCurDate());
-        addSampleActivities(1700, CurStatus.getCurDate());
-        addSampleActivities(1600, CurStatus.getCurDate());
-        addSampleActivities(1500, CurStatus.getCurDate());
-        addSampleActivities(1400, CurStatus.getCurDate());
-        addSampleActivities(1400, CurStatus.getCurDate());
-        // add step data week 3
-        addSampleActivities(1500, CurStatus.getCurDate());
-        addSampleActivities(1700, CurStatus.getCurDate());
-        addSampleActivities(1700, CurStatus.getCurDate());
-        addSampleActivities(1600, CurStatus.getCurDate());
-        addSampleActivities(1500, CurStatus.getCurDate());
-        addSampleActivities(1400, CurStatus.getCurDate());
-        addSampleActivities(1400, CurStatus.getCurDate());
+		addSampleActivities(1200, CurStatus.getCurDate());
+		addSampleActivities(1200, CurStatus.getCurDate());
+		addSampleActivities(1700, CurStatus.getCurDate());
+		addSampleActivities(1600, CurStatus.getCurDate());
+		addSampleActivities(1500, CurStatus.getCurDate());
+		addSampleActivities(1400, CurStatus.getCurDate());
+		addSampleActivities(1400, CurStatus.getCurDate());
+		// add step data week 3
+		addSampleActivities(1500, CurStatus.getCurDate());
+		addSampleActivities(1700, CurStatus.getCurDate());
+		addSampleActivities(1700, CurStatus.getCurDate());
+		addSampleActivities(1600, CurStatus.getCurDate());
+		addSampleActivities(1500, CurStatus.getCurDate());
+		addSampleActivities(1400, CurStatus.getCurDate());
+		addSampleActivities(1400, CurStatus.getCurDate());
 	}
 
 	public static String SampleHealthDataToJson() {

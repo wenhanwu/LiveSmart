@@ -3,6 +3,7 @@ package com.mss.livesmart.entities;
 import java.util.ArrayList;
 
 import com.mss.livesmart.sampledata.CurUserInfo;
+import com.mss.livesmart.utils.RecomProcessor;
 
 public class RecommendationData {
 
@@ -24,8 +25,10 @@ public class RecommendationData {
 	public String recomToString() {
 		String recomStr = "";
 		for (int i = 0; i < recommendations.size(); i++) {
-			recomStr += "[Recommendation No. " + recommendations.get(i).getId() + "]\n";
-			recomStr += recommendations.get(i).getRecommendation();
+			recomStr += "[Recommendation No. " + recommendations.get(i).getId()
+					+ "]\n";
+			recomStr += RecomProcessor.process(recommendations.get(i)
+					.getRecommendation());
 			recomStr += "\n\n[Reference Url]";
 			recomStr += "\n[" + recommendations.get(i).getUrl() + "] ";
 			recomStr += "\n\n[Severity Level]:";

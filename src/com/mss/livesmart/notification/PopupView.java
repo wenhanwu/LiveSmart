@@ -1,10 +1,11 @@
 package com.mss.livesmart.notification;
 
-import com.mss.livesmart.MainActivity;
 import com.mss.livesmart.MessageCenterActivity;
+import com.mss.livesmart.R;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.View;
 import android.view.WindowManager;
@@ -14,8 +15,8 @@ import android.widget.TextView;
 
 public class PopupView extends LinearLayout {
 	private TextView tv;
-	private Button btn_dismiss;
-	private Button btn_open;
+	private Button btn_ignore;
+	private Button btn_check;
 	private WindowManager wm; 
 
 	public PopupView(Context context, String str, WindowManager wMngr) {
@@ -27,21 +28,26 @@ public class PopupView extends LinearLayout {
 		tv.setText(str);
 		tv.setTextSize(18);
 		tv.setTypeface(Typeface.SANS_SERIF, Typeface.NORMAL);
-		this.addView(tv);
+		this.addView(tv); 
 
-		btn_dismiss = new Button(context);
-		btn_dismiss.setText("Ignore");
-		btn_dismiss.setOnClickListener(new OnClickListener(){
+		tv.setTextColor(Color.BLACK);
+		tv.setBackgroundColor(Color.LTGRAY);
+		tv.setPadding(20,20,20,20);
+		tv.setBackgroundResource(R.drawable.text_view_border);  
+		
+		btn_ignore = new Button(context);
+		btn_ignore.setText("Ignore");
+		btn_ignore.setOnClickListener(new OnClickListener(){
 	        @Override 
 	        public void onClick(View v)  {
 	        	removePopup();
 	        }
 		});
-		this.addView(btn_dismiss);
+		this.addView(btn_ignore);
 		
-		btn_open = new Button(context);
-		btn_open.setText("Check");
-		btn_open.setOnClickListener(new OnClickListener(){
+		btn_check = new Button(context);
+		btn_check.setText("Check");
+		btn_check.setOnClickListener(new OnClickListener(){
 	        @Override 
 	        public void onClick(View v)  {
 	        	removePopup();
@@ -50,7 +56,7 @@ public class PopupView extends LinearLayout {
 	        	v.getContext().startActivity(intent);
 	        }
 		});
-		this.addView(btn_open);
+		this.addView(btn_check);
 
 	}
 
