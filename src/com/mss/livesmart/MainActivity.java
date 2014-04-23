@@ -170,7 +170,7 @@ public class MainActivity extends Activity {
 									getApplicationContext())
 									.setSmallIcon(R.drawable.ic_launcher)
 									.setContentTitle(
-											"New mail from " + "test@gmail.com")
+											"New notification " + "LiveSmart Engine")
 									.setContentText("Subject")
 									.setContentIntent(pIntent)
 									.setAutoCancel(true)
